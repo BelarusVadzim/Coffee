@@ -4,8 +4,8 @@ namespace Coffee {
     public interface IWaterTank {
         int AmountOfWater { get; set; }
         int FullVolume { get; }
-        bool IsEmpty { get; set; }
-        bool IsFull { get; set; }
+        bool IsEmpty { get; }
+        bool IsFull { get; }
 
         event EventHandler TankIsEmpty;
         event EventHandler TankIsFull;

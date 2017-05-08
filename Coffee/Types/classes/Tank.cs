@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coffee.Types {
-    public class Tank{
+    public abstract class Tank{
 
         // private int fullVolume = 0;
         /// <summary>
@@ -33,12 +33,12 @@ namespace Coffee.Types {
         /// <summary>
         /// Возвращает True если бак пуст.
         /// </summary>
-        public bool IsEmpty { get; set; }
+        public bool IsEmpty { get; private set; }
 
         /// <summary>
         /// Возвращает True если бак полон.
         /// </summary>
-        public bool IsFull { get; set; }
+        public bool IsFull { get; private set; }
 
         public Tank(int FullVolume) {
             this.FullVolume = FullVolume;

@@ -12,6 +12,8 @@ namespace Coffee
         {
             CoffeeMaker maker = new CoffeeMaker();
             maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
+            CupCartridge CC = new CupCartridge(80);
+           
 
         }
 

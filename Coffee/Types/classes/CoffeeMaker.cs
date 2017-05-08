@@ -8,35 +8,18 @@ namespace Coffee
     public class CoffeeMaker: IElectricDevice {
         public bool IsPowered { get; private set; }
 
-        internal byte CurrentWaterTemperature {
-            get => default(int);
-            set {
-                CurrentWaterTemperature = value;
-            }
-        }
+        internal byte CurrentWaterTemperature { get; set; }
 
-        internal bool ConnectedToPower {
-            get => default(bool);
-            set {
-            }
-        }
+        private IWaterTank WaterTank { get; set; }
+        private ICoffeeTank CoffeeTank { get; set; }
+        private ICupCartridge CupCartridge { get; set; }
+        private IMilkTank MilkTank { get; set; }
+        private ISugarTank SugarTank{ get; set; }
 
-        private IWaterTank WaterTank {
-            get => default(IWaterTank);
-            set {
-            }
-        }
-
-        ICoffeeTank CoffeeTank {
-            get => default(ICoffeeTank);
-            set {
-            }
-        }
 
         public void SwitchOff() {
             IsPowered = false;
         }
-
         public void SwitchOn() {
             IsPowered = true;
         }
