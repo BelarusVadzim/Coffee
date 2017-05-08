@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoffeeTank.cs" />
+    <Compile Include="Cup.cs" />
+    <Compile Include="CupCartridge.cs" />
+    <Compile Include="ICoffeeTank.cs" />
+    <Compile Include="IElectricDevice.cs" />
+    <Compile Include="Types\IWaterTank.cs" />
     <Compile Include="Types\Button.cs" />
     <Compile Include="ButtonPressedEventArgs.cs" />
     <Compile Include="ButtonPressedHanler.cs" />
@@ -50,6 +56,8 @@
     <Compile Include="Types\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\Tank.cs" />
+    <Compile Include="WaterTank.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
