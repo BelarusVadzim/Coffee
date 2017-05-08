@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Coffee.CoffeeMaker">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Coffee.CoffeeMaker.CoffeeType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Types\CoffeeMaker.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAgAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\CoffeeMaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coffee.Person">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAQAIAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Types\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coffee.Keyboard">
+    <Position X="5.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAgAAAAAAAAAABAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Types\Keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coffee.ButtonPressedEventArgs">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAgAA=</HashCode>
+      <FileName>ButtonPressedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Coffee.Button">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Types\Button.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Delegate Name="Coffee.ButtonPressedHanler">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ButtonPressedHanler.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

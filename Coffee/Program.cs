@@ -10,6 +10,9 @@ namespace Coffee
     {
         static void Main(string[] args)
         {
+            CoffeeMaker maker = new CoffeeMaker();
+            maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
+          
         }
     }
 }
