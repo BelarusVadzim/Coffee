@@ -63,7 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\classes\Tank.cs" />
     <Compile Include="Types\classes\StandartWaterTank.cs" />
-    <Compile Include="Water.cs" />
+    <Compile Include="Types\classes\Liquid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

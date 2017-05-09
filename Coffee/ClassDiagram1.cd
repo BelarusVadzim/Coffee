@@ -36,10 +36,10 @@
       <FileName>Types\delegates\ButtonPressedEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Coffee.StandartWaterTank" Collapsed="true">
+  <Class Name="Coffee.StandartWaterTank">
     <Position X="0.5" Y="12.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAAABAAAAAAAAAAAAAABAAAAAAAgAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Types\classes\StandartWaterTank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -55,12 +55,12 @@
   <Class Name="Coffee.Types.Tank">
     <Position X="2.5" Y="10.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAQAFAAAAAACAAAAAAAAIAAEAAAIAAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAwAFAAAAAACAAAAAAAAIAAEAAAAAAAA=</HashCode>
       <FileName>Types\classes\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.CupCartridge" Collapsed="true">
-    <Position X="0.5" Y="13.25" Width="1.5" />
+    <Position X="4.5" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAACAAAAAAAAACAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Types\classes\CupCartridge.cs</FileName>
@@ -91,17 +91,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.Liquid">
-    <Position X="7" Y="6.75" Width="1.5" />
+    <Position X="9.25" Y="5.75" Width="1.5" />
     <NestedTypes>
       <Enum Name="Coffee.Liquid.LiquidType" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>Water.cs</NewMemberFileName>
+          <NewMemberFileName>Types\classes\Liquid.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAABAAAAQAAAAAIAAACGAAA=</HashCode>
-      <FileName>Water.cs</FileName>
+      <HashCode>AIIAAAAAAAAAAAABAAAAAAABAAAAQAAAAAIAAACGAAQ=</HashCode>
+      <FileName>Types\classes\Liquid.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Coffee.Button">
@@ -114,7 +114,7 @@
   <Interface Name="Coffee.ICoffeeTank" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAQABAAAAAAgAABAAAAAIAAAAAAIAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAAAwABAAAAAAgAABAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Types\interfaces\ICoffeeTank.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -128,7 +128,7 @@
   <Interface Name="Coffee.IWaterTank" Collapsed="true">
     <Position X="11.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABCAAAAAAAAAQABAAABAAAAAAAAAAAIAAAEAAIAAAA=</HashCode>
+      <HashCode>AABABAAAAAAAAwABAAABAAAAAAAAAAAIAAAEAAAAAAA=</HashCode>
       <FileName>Types\interfaces\IWaterTank.cs</FileName>
     </TypeIdentifier>
   </Interface>

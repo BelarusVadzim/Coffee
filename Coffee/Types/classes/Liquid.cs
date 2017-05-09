@@ -18,17 +18,18 @@ namespace Coffee {
         /// </summary>
         public Double Density { get; private set; }
         public Double HeatCapacity { get; private set; }
+        public LiquidType CurrentLiquideTye { get; private set; }
 
         /// <summary>
         /// Температура воды
         /// </summary>
-        public int Temperature { get; set; }
+        public Double Temperature { get; private set; }
         /// <summary>
         /// Объм (мл)
         /// </summary>
         public Double Volume {
             get { return volume; }
-            set {
+            private set {
                 volume = value;
                 mass = value*Density/1000;
             }
@@ -38,17 +39,18 @@ namespace Coffee {
         /// </summary>
         public Double Mass {
             get { return mass; }
-            set {
+            private set {
                 mass = value;
                 volume = value/(Density / 1000);
             }
         }
 
 
-        public Liquid(LiquidType liqudeType, int Volume, int Temperature) {
+        public Liquid(LiquidType liqudeType, Double Volume, Double Temperature) {
 
             switch (liqudeType) {
                 case LiquidType.Water:
+                    this.CurrentLiquideTye = LiquidType.Water;
                     Density = 1000;
                     HeatCapacity = 4187;
                     break;
@@ -60,6 +62,32 @@ namespace Coffee {
             this.Volume = Volume;
             this.Temperature = Temperature;
         }
+
+        /// <summary>
+        /// Прибавление к жидкости указанной жидкости.
+        /// </summary>
+        /// <param name="L">Жидкость которую добавляем в текущую. Должна быть такого же типа.</param>
+        public void Add(Liquid L) {
+            if (L.CurrentLiquideTye != this.CurrentLiquideTye) throw new Exception("Попытка сложить жидкости разных типов");
+            this.volume += L.volume;
+            this.Temperature = (this.Temperature * this.mass + L.Temperature * L.mass) / (this.mass + L.mass);
+        }
+
+        /// <summary>
+        /// Вычитаем жидкость из имеющейся. (мл)
+        /// </summary>
+        /// <param name="Volume">Объём жидкости, который нужно вычесть</param>
+        /// <returns>Жидкость которую вычли.</returns>
+        public Liquid Sub(double Volume) {
+            if (Volume > this.volume) throw new Exception("Попытка удалить жидкости больше чем есть");
+            this.volume -= Volume;
+            Liquid result = new Liquid(this.CurrentLiquideTye, Volume, this.Temperature);
+            return result;
+        }
+
+        
+
+
 
         public enum LiquidType {
             Water

@@ -13,9 +13,9 @@ namespace Coffee
             CoffeeMaker maker = new CoffeeMaker();
             maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
             Liquid W = new Liquid(Liquid.LiquidType.Water, 300, 20);
-            W.Mass = 800;
+            
             Console.WriteLine(W.Volume);
-            W.Volume= 111800;
+            
             Console.WriteLine(W.Mass);
         }
 

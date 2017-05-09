@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Coffee.Types {
     public abstract class Tank{
 
-        // private int fullVolume = 0;
+        
         /// <summary>
         /// Событие возникающее, когда бак становится пустым.
         /// </summary>
@@ -20,15 +20,14 @@ namespace Coffee.Types {
         /// <summary>
         /// Объём бака
         /// </summary>
-        public int MaximumVolume { get; }
+        public double MaximumVolume { get; }
 
 
-        //public double CurrentWaterTemperature { get; set; }
-
+      
         /// <summary>
         /// Количество содержимого в баке.
         /// </summary>
-        public int Amount { get; set; }
+        public double Amount { get; set; }
 
         /// <summary>
         /// Возвращает True если бак пуст.
@@ -54,10 +53,10 @@ namespace Coffee.Types {
         /// </summary>
         /// <param name="AmountToAdd">Количество добавляемой в бак T (мл). По-умолчанию добавляется 10 мл. Не может быть отрицательным или 0.</param>
         /// <returns>Количество T добавленой в бак</returns>
-        protected int Add(int AmountToAdd) {
+        protected double Add(double AmountToAdd) {
             if (AmountToAdd <= 0)
                 throw new Exception("Amount should be a positive value.");
-            int rest = 0;
+            double rest = 0;
             Console.WriteLine("Try to add {0} mls", AmountToAdd);
             Amount += AmountToAdd;
             IsEmpty = false;
@@ -71,7 +70,7 @@ namespace Coffee.Types {
             return AmountToAdd - rest;
         }
 
-        protected int Add() {
+        protected double Add() {
             return Add(10);
         }
 
@@ -83,10 +82,10 @@ namespace Coffee.Types {
         /// </summary>
         /// <param name="AmountToTake">Количество T (мл) которое удаляется из бака. Не может быть отрицательным или 0.</param>
         /// <returns>Количество T взятого из бака</returns>
-        protected int Take(int AmountToTake) {
+        protected double Take(double AmountToTake) {
             if (AmountToTake <= 0)
                 throw new Exception("Amount should be a positive value.");
-            int rest = AmountToTake;
+            double rest = AmountToTake;
             IsFull = false;
             Console.WriteLine("Try to teake {0} mls", AmountToTake);
             Amount -= AmountToTake;
@@ -103,7 +102,7 @@ namespace Coffee.Types {
         /// Test
         /// </summary>
         /// <returns></returns>
-        protected int Take() {
+        protected double Take() {
             return Take(10);
         }
 
