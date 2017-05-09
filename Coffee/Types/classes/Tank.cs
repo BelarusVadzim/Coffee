@@ -20,7 +20,7 @@ namespace Coffee.Types {
         /// <summary>
         /// Объём бака
         /// </summary>
-        public int FullVolume { get; }
+        public int MaxAmount { get; }
 
 
         //public double CurrentWaterTemperature { get; set; }
@@ -41,7 +41,7 @@ namespace Coffee.Types {
         public bool IsFull { get; private set; }
 
         public Tank(int FullVolume) {
-            this.FullVolume = FullVolume;
+            this.MaxAmount = FullVolume;
             this.Amount = 0;
             this.IsEmpty = true;
             this.IsFull = false;
@@ -61,9 +61,9 @@ namespace Coffee.Types {
             Console.WriteLine("Try to add {0} mls", AmountToAdd);
             Amount += AmountToAdd;
             IsEmpty = false;
-            if (Amount>= FullVolume) {
-                rest = Amount - FullVolume;
-                Amount = FullVolume;
+            if (Amount>= MaxAmount) {
+                rest = Amount - MaxAmount;
+                Amount = MaxAmount;
                 IsFull = true;
                 if (TankIsFull != null)
                     TankIsFull(this, new EventArgs());
@@ -109,7 +109,7 @@ namespace Coffee.Types {
 
         public override string ToString() {
             return string.Format("FullVolume: {0}, Amount: {1}",
-                this.FullVolume, this.Amount);
+                this.MaxAmount, this.Amount);
         }
     }
 }

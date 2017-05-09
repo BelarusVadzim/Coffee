@@ -37,7 +37,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.StandartWaterTank" Collapsed="true">
-    <Position X="2.5" Y="7.5" Width="1.5" />
+    <Position X="0.5" Y="12.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Types\classes\StandartWaterTank.cs</FileName>
@@ -45,22 +45,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Coffee.StandartCoffeeTank" Collapsed="true">
-    <Position X="2.5" Y="5.5" Width="1.5" />
+    <Position X="0.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAgAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Types\classes\StandartCoffeeTank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Coffee.Types.Tank" Collapsed="true">
-    <Position X="5.25" Y="7" Width="1.25" />
+  <Class Name="Coffee.Types.Tank">
+    <Position X="2.5" Y="10.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAQAFAAAAAACAAAAAAAAIIAEAAAAAAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAQAFAAAAAACAAAAAAAAIAAEAAAIAAAA=</HashCode>
       <FileName>Types\classes\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.CupCartridge" Collapsed="true">
-    <Position X="2.5" Y="8.5" Width="1.5" />
+    <Position X="0.5" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAACAAAAAAAAACAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Types\classes\CupCartridge.cs</FileName>
@@ -68,32 +68,46 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Coffee.StandartMilkTank" Collapsed="true">
-    <Position X="2.5" Y="6.5" Width="1.5" />
+    <Position X="0.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Types\classes\StandartMilkTank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Coffee.StandartSugarTank">
-    <Position X="8.25" Y="5.25" Width="1.5" />
+  <Class Name="Coffee.StandartSugarTank" Collapsed="true">
+    <Position X="4.25" Y="10.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAgAAAAAAAAA=</HashCode>
       <FileName>StandartSugarTank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Coffee.Boiler">
+    <Position X="2.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAAAAAAAAAAAAAAAAAgAAAAAAAAQAAJAAAAAAAQAAA=</HashCode>
+      <FileName>Types\classes\Boiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="Coffee.Button">
-    <Position X="7.25" Y="0.75" Width="1.5" />
+    <Position X="7.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Types\classes\Button.cs</FileName>
+      <FileName>Types\structures\Button.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Coffee.Water">
+    <Position X="8.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAEAAA=</HashCode>
+      <FileName>Water.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="Coffee.ICoffeeTank" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAQABAAAAAAgAABAAAAAIIAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAAAQABAAAAAAgAABAAAAAIAAAAAAIAAAA=</HashCode>
       <FileName>Types\interfaces\ICoffeeTank.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -107,7 +121,7 @@
   <Interface Name="Coffee.IWaterTank" Collapsed="true">
     <Position X="11.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABCAAAAAAAAAQABAAABAAAAAAAAAAAIIAAEAAAAAAA=</HashCode>
+      <HashCode>AABCAAAAAAAAAQABAAABAAAAAAAAAAAIAAAEAAIAAAA=</HashCode>
       <FileName>Types\interfaces\IWaterTank.cs</FileName>
     </TypeIdentifier>
   </Interface>
