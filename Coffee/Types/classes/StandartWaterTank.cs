@@ -11,7 +11,7 @@ namespace Coffee {
     public class StandartWaterTank :Tank, IWaterTank {
         public StandartWaterTank(int FullVolume) : base(FullVolume) {
         }
-        public int AmountOfWater {
+        public int CurrentAmountOfWater {
             get { return Amount; }
             set { Amount = value; }
         }

@@ -10,13 +10,13 @@ namespace Coffee
     {
         static void Main(string[] args)
         {
-            double a = default(Double);
             CoffeeMaker maker = new CoffeeMaker();
             maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
-            Boiler B = new Boiler(300, 3000);
-            B.AddWater(100);
-            a = B.WarmUp(95);
-            Console.WriteLine("Время нагрева {0} sec", a);
+            Liquid W = new Liquid(Liquid.LiquidType.Water, 300, 20);
+            W.Mass = 800;
+            Console.WriteLine(W.Volume);
+            W.Volume= 111800;
+            Console.WriteLine(W.Mass);
         }
 
         private static void W_TankIsFull(object sender, EventArgs e) {

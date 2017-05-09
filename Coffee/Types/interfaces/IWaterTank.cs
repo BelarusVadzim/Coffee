@@ -2,8 +2,8 @@
 
 namespace Coffee {
     public interface IWaterTank {
-        int AmountOfWater { get; set; }
-        int MaxAmount { get; }
+        int CurrentAmountOfWater { get; set; }
+        int MaximumVolume { get; }
         bool IsEmpty { get; }
         bool IsFull { get; }
 

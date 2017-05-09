@@ -9,7 +9,7 @@ namespace Coffee {
     public class Boiler : StandartWaterTank {
 
         private const int AmbientTemperature = 20;
-        private int mass = 0;
+       // private int mass = 0;
         private const double HeatCapacity = 4.187;
 
 
@@ -33,7 +33,7 @@ namespace Coffee {
         public double WarmUp(double Temperature) {
             double result = default(double);
             Timer T = new Timer(test);
-            result = (double)AmountOfWater/1000 * (Temperature - AmbientTemperature) * 4187 / Power;
+            result = (double)CurrentAmountOfWater/1000 * (Temperature - AmbientTemperature) * 4187 / Power;
             return result;
             
         }

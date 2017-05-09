@@ -86,8 +86,22 @@
   <Class Name="Coffee.Boiler">
     <Position X="2.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IIAAAAAAAAAAAAAAAAAgAAAAAAAAQAAJAAAAAAAQAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAAAAAAAgAAAAAAAAQAAJAAAAAAAQAAA=</HashCode>
       <FileName>Types\classes\Boiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coffee.Liquid">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Coffee.Liquid.LiquidType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Water.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAABAAAAQAAAAAIAAACGAAA=</HashCode>
+      <FileName>Water.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Coffee.Button">
@@ -95,13 +109,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Types\structures\Button.cs</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Coffee.Water">
-    <Position X="8.5" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAEAAA=</HashCode>
-      <FileName>Water.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="Coffee.ICoffeeTank" Collapsed="true">
