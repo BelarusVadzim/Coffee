@@ -11,8 +11,10 @@ namespace Coffee {
 
         public int AmountOfCoffee {
             get { return Amount; }
-            set { Amount = value; }
+            //set { Amount = value; }
         }
+
+        int ICoffeeTank.MaximumVolume => throw new NotImplementedException();
 
         public int AddCoffee() {
             return Add();

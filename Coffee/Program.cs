@@ -12,11 +12,14 @@ namespace Coffee
         {
             CoffeeMaker maker = new CoffeeMaker();
             maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
-            Liquid W = new Liquid(Liquid.LiquidType.Water, 300, 20);
-            
-            Console.WriteLine(W.Volume);
-            
-            Console.WriteLine(W.Mass);
+            StandartWaterTank SWT = new StandartWaterTank(1000);
+            Water W = new Water(300, 20);
+            Console.WriteLine(SWT.CurrentAmountOfWater);
+            SWT.AddWater(W);
+            Console.WriteLine(SWT.CurrentAmountOfWater);
+
+
+
         }
 
         private static void W_TankIsFull(object sender, EventArgs e) {
@@ -27,4 +30,6 @@ namespace Coffee
             Console.WriteLine("Tank is Empty");
         }
     }
+
+    
 }

@@ -2,17 +2,17 @@
 
 namespace Coffee {
     public interface IWaterTank {
-        double CurrentAmountOfWater { get; }
-        double MaximumVolume { get; }
+        int CurrentAmountOfWater { get; }
+        int MaximumVolume { get; }
         bool IsEmpty { get; }
         bool IsFull { get; }
 
         event EventHandler TankIsEmpty;
         event EventHandler TankIsFull;
 
-        double AddWater();
-        double AddWater(double AmountOfWaterToAdd);
-        double TakeWater();
-        double TakeWater(double AmountOfWaterToTake);
+        //double AddWater();
+        //double AddWater(double AmountOfWaterToAdd);
+        int TakeWater();
+        int TakeWater(int AmountOfWaterToTake);
     }
 }

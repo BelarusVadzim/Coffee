@@ -1,6 +1,6 @@
 ﻿namespace Coffee {
     public interface ISugarTank {
-        int AmountOfSugar { get; set; }
+        int AmountOfSugar { get; }
 
         int AddSugar();
         int AddSugar(int AmountOfSugarToAdd);

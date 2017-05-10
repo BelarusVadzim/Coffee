@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Coffee {
     public interface ICoffeeTank {
-        int AmountOfCoffee { get; set; }
+        int AmountOfCoffee { get; }
         int MaximumVolume { get; }
         bool IsEmpty { get; }
         bool IsFull { get; }

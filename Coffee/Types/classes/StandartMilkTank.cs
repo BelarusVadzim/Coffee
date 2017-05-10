@@ -10,7 +10,7 @@ namespace Coffee {
         }
         public int AmountOfMilk {
             get { return Amount; }
-            set { Amount = value; }
+           // set { Amount = value; }
         }
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace Coffee {
 
         public int AmountOfSugar {
             get { return Amount; }
-            set { Amount = value; }
+            //set { Amount = value; }
         }
 
         public int AddSugar() {

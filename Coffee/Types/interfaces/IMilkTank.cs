@@ -1,6 +1,6 @@
 ﻿namespace Coffee {
     public interface IMilkTank {
-        int AmountOfMilk { get; set; }
+        int AmountOfMilk { get; }
 
         int AddMilk();
         int AddMilk(int AmountOfMilkToAdd);
