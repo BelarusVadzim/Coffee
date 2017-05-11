@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 
 namespace Coffee {
-    public class Water: Content {
+    public class Water {
 
         private Double mass = default(Double);
-
+        private int volume = default(int);
 
         /// <summary>
         /// Тепломкость. Сколько джоулей требуется для изменения одного кг воды на 1 градус Кельвина.
@@ -27,10 +27,11 @@ namespace Coffee {
         /// <summary>
         /// Объм воды (мл)
         /// </summary>
-        public override int Volume {
-            get { return base.Volume; }
+        public int Volume {
+            get { return volume; }
             set {
-                base.Volume = value;
+                if (value <= 0) throw new Exception("Общём должен быть больше нуля");
+                volume=value;
                 mass = value * Density / 1000;
             }
         }
@@ -40,10 +41,6 @@ namespace Coffee {
         /// </summary>
         public Double Mass {
             get { return mass; }
-            //private set {
-            //    mass = value;
-            //    volume = value / (Density / 1000);
-            //}
         }
 
         /// <summary>
@@ -51,7 +48,7 @@ namespace Coffee {
         /// </summary>
         /// <param name="Volume">Объм создаваемой воды</param>
         /// <param name="Temperature">Температура создаваемой воды</param>
-        public Water(int Volume, Double Temperature) : base(Volume) {
+        public Water(int Volume, Double Temperature){
 
            // this.CurrentContentType = ContentType.Water;
             Density = 1000;
@@ -65,15 +62,11 @@ namespace Coffee {
         /// Прибавление к воде указанной воды.
         /// </summary>
         /// <param name="WaterToAdd">Вода которую добавляем в текущую.</param>
-        public override void Add(IContent WaterToAdd) {
-            Water W = WaterToAdd as Water;
-            if (W == null) throw new Exception("Переданный аргумент не является типом Water");
-            base.Add(WaterToAdd);
-            this.Temperature = (this.Temperature * this.mass + W.Temperature * W.mass) / (this.mass + W.mass);
+        public  void Add(Water WaterToAdd) {
+            this.Temperature = (this.Temperature * this.mass + WaterToAdd.Temperature * WaterToAdd.mass) / (this.mass + WaterToAdd.mass);
+            this.Volume += WaterToAdd.Volume;
         }
-        public void Add(Water WaterToAdd) {
-            Add(WaterToAdd);
-        }
+
 
 
         /// <summary>
@@ -81,10 +74,14 @@ namespace Coffee {
         /// </summary>
         /// <param name="Volume">Объём воды, который нужно вычесть</param>
         /// <returns>Вода которую вычли.</returns>
-        public override IContent Subtraction(int Volume) {
-            Water result = base.Subtraction(Volume) as Water;
-            result.Temperature = this.Temperature;
+        public Water Subtraction(int Volume) {
+            this.Volume -= Volume; 
+            Water result =  new Water(Volume, this.Temperature);
             return result;
+        }
+
+        public override string ToString() {
+            return string.Format("Объём воды:{0}; Температура воды:{1}", this.Volume, this.Temperature);
         }
 
 
