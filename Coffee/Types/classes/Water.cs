@@ -30,10 +30,10 @@ namespace Coffee {
         public int Volume {
             get { return volume; }
             set {
-                if (value <= 0) throw new Exception("Общём должен быть больше нуля");
+                if (value < 0) throw new Exception("Объём должен быть больше нуля");
                 volume=value;
-                mass = value * Density / 1000;
-            }
+                mass = value * Density / 1000;   //Сделать, чтобы можно было задавать только через метод
+            }   
         }
 
         /// <summary>
@@ -53,7 +53,6 @@ namespace Coffee {
            // this.CurrentContentType = ContentType.Water;
             Density = 1000;
             HeatCapacity = 4187;
-
             this.Volume = Volume;
             this.Temperature = Temperature;
         }

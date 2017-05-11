@@ -29,7 +29,7 @@ namespace Coffee.Types {
         /// <summary>
         /// Количество содержимого в баке.
         /// </summary>
-        public int Amount { get; set; }
+        protected int Amount { get; set; }
 
 
         /// <summary>

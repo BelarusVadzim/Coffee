@@ -14,15 +14,16 @@ namespace Coffee
             maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
             StandartWaterTank SWT = new StandartWaterTank(1000);
             Water W1 = new Water(500, 0);
-            Water W2 = new Water(-500, 40);
-            //  Console.WriteLine(SWT.CurrentAmountOfWater);
+            Water W2 = new Water(500, 40);
+            SWT.AddWater(W1);
+            Console.WriteLine(SWT.ToString());
             //  SWT.AddWater(W);
             // Console.WriteLine(SWT.CurrentAmountOfWater);
             Console.WriteLine(W1.ToString());
             Console.WriteLine(W2.ToString());
             W1.Add(W2);
             Console.WriteLine(W1.ToString());
-            W2 = W1.Subtraction(50);
+            W2 = W1.Subtraction(900);
             Console.WriteLine(W1.ToString());
             Console.WriteLine(W2.ToString());
 
