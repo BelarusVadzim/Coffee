@@ -2,7 +2,7 @@
 
 namespace Coffee {
     public interface IWaterTank {
-        int CurrentAmountOfWater { get; }
+        int AmountOfContent { get; }
         int MaximumVolume { get; }
         bool IsEmpty { get; }
         bool IsFull { get; }

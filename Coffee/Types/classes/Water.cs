@@ -9,8 +9,11 @@ namespace Coffee {
         private Double mass = default(Double);
         private int volume = default(int);
 
+        public event WaterVolumeChangedHandler ChangeVolume;
+        public event WaterTemperatureChangedHandler ChangeTemperature;
+
         /// <summary>
-        /// Тепломкость. Сколько джоулей требуется для изменения одного кг воды на 1 градус Кельвина.
+        /// Теплоёмкость. Сколько джоулей требуется для изменения одного кг воды на 1 градус Кельвина.
         /// </summary>
         public Double HeatCapacity { get; private set; }
 
@@ -31,8 +34,11 @@ namespace Coffee {
             get { return volume; }
             set {
                 if (value < 0) throw new Exception("Объём должен быть больше нуля");
-                volume=value;
+                if (ChangeVolume != null)
+                    ChangeVolume(this, new WaterVolumeChangedEventArgs() { NewVolume = value, OldVolume = volume });
+                volume =value;
                 mass = value * Density / 1000;   //Сделать, чтобы можно было задавать только через метод
+                
             }   
         }
 

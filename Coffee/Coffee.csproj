@@ -66,6 +66,7 @@
     <Compile Include="Types\classes\Tank.cs" />
     <Compile Include="Types\classes\StandartWaterTank.cs" />
     <Compile Include="Types\classes\Water.cs" />
+    <Compile Include="WaterVolumeChangedHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

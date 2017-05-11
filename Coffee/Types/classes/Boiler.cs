@@ -33,7 +33,7 @@ namespace Coffee {
         public double WarmUp(double Temperature) {
             double result = default(double);
             Timer T = new Timer(test);
-            result = (double)CurrentAmountOfWater/1000 * (Temperature - AmbientTemperature) * 4187 / Power;
+            result = (double)AmountOfContent/1000 * (Temperature - AmbientTemperature) * 4187 / Power;
             return result;
             
         }

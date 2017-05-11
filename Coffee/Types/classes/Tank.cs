@@ -29,7 +29,7 @@ namespace Coffee.Types {
         /// <summary>
         /// Количество содержимого в баке.
         /// </summary>
-        protected int Amount { get; set; }
+        protected int AmountOfContent { get; set; }
 
 
         /// <summary>
@@ -49,10 +49,6 @@ namespace Coffee.Types {
             this.IsFull = false;
            // this.TankContent = new Content(0);
         }
-
-
-
-       
        
 
         /// <summary>
@@ -64,10 +60,10 @@ namespace Coffee.Types {
             if (AmountToAdd <= 0)
                 throw new Exception("Amount should be a positive value.");
             int result = AmountToAdd;  //result переменная, которая показывает какое количество содержимого будет добавлено с учтом вместимости бака
-            Console.WriteLine("Try to add {0} mls", AmountToAdd);
+            //Console.WriteLine("Try to add {0} mls", AmountToAdd);
             IsEmpty = false;
-            if (Amount + AmountToAdd >= MaximumVolume) {
-                result = Amount + AmountToAdd - MaximumVolume;
+            if (AmountOfContent + AmountToAdd >= MaximumVolume) {
+                result = AmountOfContent + AmountToAdd - MaximumVolume;
                 IsFull = true;
             }
             //this.TankContent.Add(new Content(result));
@@ -92,8 +88,8 @@ namespace Coffee.Types {
             int rest = AmountToTake;
             IsFull = false;
             Console.WriteLine("Try to teake {0} mls", AmountToTake);
-            if (Amount- AmountToTake <= 0) {
-                rest = Amount;
+            if (AmountOfContent- AmountToTake <= 0) {
+                rest = AmountOfContent;
                // TankContent.Subtraction(rest);
                 IsEmpty = true;
                 if (TankIsEmpty != null)
@@ -108,11 +104,9 @@ namespace Coffee.Types {
             return Take(10);
         }
 
-
-
         public override string ToString() {
             return string.Format("FullVolume: {0}, Amount: {1}",
-                this.MaximumVolume, this.Amount);
+                this.MaximumVolume, this.AmountOfContent);
         }
     }
 }
