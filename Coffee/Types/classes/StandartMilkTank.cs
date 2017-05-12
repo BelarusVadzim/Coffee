@@ -9,7 +9,7 @@ namespace Coffee {
         public StandartMilkTank(int FullVolume) : base(FullVolume) {
         }
         public int AmountOfMilk {
-            get { return AmountOfContent; }
+            get { return ContentVolume; }
            // set { Amount = value; }
         }
 

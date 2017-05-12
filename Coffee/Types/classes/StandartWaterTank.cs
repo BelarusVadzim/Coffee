@@ -73,7 +73,7 @@ namespace Coffee {
         }
 
         private void WaterChangeVolume(object Sender, WaterVolumeChangedEventArgs Args) {
-            base.AmountOfContent = Args.NewVolume;
+            base.ContentVolume = Args.NewVolume;
         }
     }
 }
