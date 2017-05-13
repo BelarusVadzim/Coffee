@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coffee.Types {
-    public abstract class Tank{
+    public class Tank{
 
-        
         /// <summary>
         /// Событие возникающее, когда бак становится пустым.
         /// </summary>
@@ -20,7 +19,7 @@ namespace Coffee.Types {
         /// <summary>
         /// Объём бака
         /// </summary>
-        public int MaximumVolume { get; }
+        protected int MaximumVolume { get; }
 
         /// <summary>
         /// Количество содержимого в баке.
@@ -31,21 +30,22 @@ namespace Coffee.Types {
         /// <summary>
         /// Возвращает True если бак пуст.
         /// </summary>
-        public bool IsEmpty { get; private set; }
+        protected bool IsEmpty { get; private set; }
 
         /// <summary>
         /// Возвращает True если бак полон.
         /// </summary>
-        public bool IsFull { get; private set; }
+        protected bool IsFull { get; private set; }
 
         public Tank(int MaximumVolume) {
             this.MaximumVolume = MaximumVolume;
             //this.Amount = 0;
             this.IsEmpty = true;
             this.IsFull = false;
-           // this.TankContent = new Content(0);
+            // this.TankContent = new Content(0);
+            Console.WriteLine("Создан бак объёмом {0}", MaximumVolume);
         }
-       
+
 
         /// <summary>
         /// Добавляет содержимое в указанном количестве мл за раз. Если объём содержимого превышает объём бака, то вызывается событие TankIsFull.
@@ -54,19 +54,28 @@ namespace Coffee.Types {
         /// <returns>Количество T добавленой в бак</returns>
         protected int Add(int AmountToAdd) {
             if (AmountToAdd <= 0)
-                throw new Exception("Amount should be a positive value.");
-            int result = AmountToAdd;  //result переменная, которая показывает какое количество содержимого будет добавлено с учтом вместимости бака
-            //Console.WriteLine("Try to add {0} mls", AmountToAdd);
-            IsEmpty = false;
-            if (ContentVolume + AmountToAdd >= MaximumVolume) {
-                result = ContentVolume + AmountToAdd - MaximumVolume;
-                IsFull = true;
+                throw new ArgumentException("AmountToAdd should be a positive value.");
+            if (IsFull) { 
+                if (TankIsFull != null)
+                    TankIsFull(this, new EventArgs());
+                return 0;
             }
-            //this.TankContent.Add(new Content(result));
+            int result = AmountToAdd;  //result переменная, которая показывает какое количество содержимого будет добавлено с учтом вместимости бака
+            Console.WriteLine("Try to add {0} mls", AmountToAdd);
+            IsEmpty = false;
+            if (ContentVolume + AmountToAdd >= MaximumVolume) {         // Если содержимое бака + добавдяемое больше чем объм бака
+                result = MaximumVolume - ContentVolume;                 // При переполнении бака переменной result автоматически присвается значение того объма, который был свободен до операции
+                ContentVolume = MaximumVolume;
+                IsFull = true;
+            } 
+            else {
+                ContentVolume += AmountToAdd;
+            }
             if (IsFull) {
                 if (TankIsFull != null)
                     TankIsFull(this, new EventArgs());
             }
+            Console.WriteLine("{0} мл было добавлено.", result);
             return result;   //Показывается сколько мл содержимого смогло быть добавлено. (с учтом вместимости бака)
         }
         protected int Add() {
@@ -86,26 +95,27 @@ namespace Coffee.Types {
                     TankIsEmpty(this, new EventArgs());
                 return 0;
             }
-            int rest = AmountToTake;                 // Число указывающее сколько содержимого мы берем.
+            int result = AmountToTake;                 // Число указывающее сколько содержимого мы берем.
             if(ContentVolume - AmountToTake < MaximumVolume)
             IsFull = false;
             Console.WriteLine("Try to teake {0} mls", AmountToTake);
             if (ContentVolume- AmountToTake <= 0) {  //Еслі остаток в баке меньше того колічества которое мы хотім взять
-                rest = ContentVolume;                // Остаток бака полностью переходит в число содержимого, которое мы хотели ихъять
+                result = ContentVolume;                // Остаток бака полностью переходит в число содержимого, которое мы хотели ихъять
                 ContentVolume = 0; ;                 // Содержімому бака прісваіваем 0;
                 IsEmpty = true;                      
                 if (TankIsEmpty != null)
                     TankIsEmpty(this, new EventArgs());  // Вызываем событие TankIsEmpty
             }
-            return rest;                                 
+            Console.WriteLine("{0} mls was deleted.", result);
+            return result;                                 
         }
         protected int Take() {
             return Take(10);
         }
 
         public override string ToString() {
-            return string.Format("MaximumVolume: {0}, ContentVolume: {1}",
-                this.MaximumVolume, this.ContentVolume);
+            return string.Format("Tank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
+                this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
     }
 }

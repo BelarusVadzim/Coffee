@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 
 namespace Coffee {
-    public class CupCartridge : Tank, ICupCartridge {
+    public class CupCartridge : Tank {
         public CupCartridge(int FullVolume) : base(FullVolume) {
         }
 
@@ -23,11 +23,12 @@ namespace Coffee {
         }
 
         public int TakeCup() {
-            return Take();
+            return base.Take();
         }
 
         public int TakeCups(int AmountOfCups) {
             return Take(AmountOfCups);
         }
+
     }
 }

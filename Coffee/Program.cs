@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Coffee.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,32 +11,18 @@ namespace Coffee
     {
         static void Main(string[] args)
         {
-            CoffeeMaker maker = new CoffeeMaker();
-            maker.MakeCoffee(CoffeeMaker.CoffeeType.cappuccino);
-            StandartWaterTank SWT = new StandartWaterTank(1000);
-            Console.WriteLine(SWT.ToString());
-            Water W1 = new Water(500, 14);
-            Water W2 = new Water(347, 40);
-            SWT.AddWater(W1);
-            Console.WriteLine(SWT.ToString());
-            SWT.AddWater(W1);
-            Console.WriteLine(SWT.ToString());
-            SWT.AddWater(W2);
-            Console.WriteLine(SWT.ToString());
-            
-            // Console.WriteLine(SWT.CurrentAmountOfWater);
-            //Console.WriteLine(W1.ToString());
-            //Console.WriteLine(W2.ToString());
-            ////W1.Add(W2);
-            //Console.WriteLine(W1.ToString());
-            ////W2 = W1.Subtraction(1000);
-            //Console.WriteLine(W1.ToString());
-            //Console.WriteLine(W2.ToString());
-
+            Boiler B = new Boiler(1000, 1000);
+            Console.WriteLine(B.ToString());
+            B.AddWater(1700);
+            Console.WriteLine(B.ToString());
+            B.WarmUp(100);
+            Console.WriteLine(B.ToString());
+            B.Drain();
+            Console.WriteLine(B.ToString());
 
         }
 
-        private static void W_TankIsFull(object sender, EventArgs e) {
+        private static void WaterTank_TankIsFull(object sender, EventArgs e) {
             Console.WriteLine("Tank is Full");
         }
 

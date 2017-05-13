@@ -42,19 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Types\classes\Content.cs" />
-    <Compile Include="Types\interfaces\IContent.cs" />
     <Compile Include="Types\classes\Boiler.cs" />
-    <Compile Include="Types\interfaces\ISugarTank.cs" />
-    <Compile Include="Types\classes\StandartSugarTank.cs" />
-    <Compile Include="Types\interfaces\IMilkTank.cs" />
-    <Compile Include="Types\classes\StandartMilkTank.cs" />
-    <Compile Include="Types\classes\StandartCoffeeTank.cs" />
     <Compile Include="Types\classes\CupCartridge.cs" />
-    <Compile Include="Types\interfaces\ICupCartridge.cs" />
-    <Compile Include="Types\interfaces\ICoffeeTank.cs" />
     <Compile Include="Types\interfaces\IElectricDevice.cs" />
-    <Compile Include="Types\interfaces\IWaterTank.cs" />
     <Compile Include="Types\structures\Button.cs" />
     <Compile Include="Types\delegates\ButtonPressedEventArgs.cs" />
     <Compile Include="Types\delegates\ButtonPressedHanler.cs" />
@@ -64,9 +54,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\classes\Tank.cs" />
-    <Compile Include="Types\classes\StandartWaterTank.cs" />
-    <Compile Include="Types\classes\Water.cs" />
-    <Compile Include="WaterVolumeChangedHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

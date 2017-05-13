@@ -10,11 +10,11 @@ namespace Coffee
 
         internal byte CurrentWaterTemperature { get; set; }
 
-        private IWaterTank WaterTank { get; set; }
-        private ICoffeeTank CoffeeTank { get; set; }
-        private ICupCartridge CupCartridge { get; set; }
-        private IMilkTank MilkTank { get; set; }
-        private ISugarTank SugarTank{ get; set; }
+        //private IWaterTank WaterTank { get; set; }
+        //private ICoffeeTank CoffeeTank { get; set; }
+        //private ICupCartridge CupCartridge { get; set; }
+        //private IMilkTank MilkTank { get; set; }
+        //private ISugarTank SugarTank{ get; set; }
 
 
         public void SwitchOff() {

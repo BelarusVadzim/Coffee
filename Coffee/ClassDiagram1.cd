@@ -10,7 +10,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAABwAAAAAAAACAAAAAgAAgAAAAAAAATAAA=</HashCode>
+      <HashCode>AAAAAAAAAAABgAAAAAAAACAAAAAAAAgAAAAAAAABAAA=</HashCode>
       <FileName>Types\classes\CoffeeMaker.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -36,78 +36,25 @@
       <FileName>Types\delegates\ButtonPressedEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Coffee.StandartWaterTank">
-    <Position X="0.5" Y="12.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACEAAABAAAAAAAAAAAAAAAUAAAQAAA=</HashCode>
-      <FileName>Types\classes\StandartWaterTank.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Coffee.StandartCoffeeTank" Collapsed="true">
-    <Position X="0.5" Y="10.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAABAAAAAAgAABAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Types\classes\StandartCoffeeTank.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="Coffee.Types.Tank">
-    <Position X="2.5" Y="10.25" Width="1.25" />
+    <Position X="0.75" Y="7.25" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAwAFAAAAAAAAAAAAEAAIAAEAAAAAAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAwAFAAAAAAAAAAAAAAAIAAEAAAAIAAA=</HashCode>
       <FileName>Types\classes\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.CupCartridge" Collapsed="true">
-    <Position X="4.5" Y="11.5" Width="1.5" />
+    <Position X="2.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAACAAAAAAAAACAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Types\classes\CupCartridge.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Coffee.StandartMilkTank" Collapsed="true">
-    <Position X="0.5" Y="11.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Types\classes\StandartMilkTank.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Coffee.StandartSugarTank" Collapsed="true">
-    <Position X="4.25" Y="10.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAgAAAAAAAAA=</HashCode>
-      <FileName>Types\classes\StandartSugarTank.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Coffee.Boiler">
-    <Position X="2.5" Y="5" Width="1.5" />
+    <Position X="2.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAgAAAAAAAAQAAJAAAAAAAQAAA=</HashCode>
       <FileName>Types\classes\Boiler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Coffee.Water">
-    <Position X="11" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QIIAAAAAAAAAAAAEAAAIAAABAAQAQAAAAAIAAACGAAA=</HashCode>
-      <FileName>Types\classes\Water.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Coffee.WaterVolumeChangedEventArgs">
-    <Position X="9.25" Y="5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAABAA=</HashCode>
-      <FileName>Types\delegates\ButtonPressedEventArgs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Coffee.WaterTemperatureChangedEventArgs">
-    <Position X="12" Y="5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAIAAAAAA=</HashCode>
-      <FileName>Types\delegates\ButtonPressedEventArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Coffee.Button">
@@ -117,60 +64,11 @@
       <FileName>Types\structures\Button.cs</FileName>
     </TypeIdentifier>
   </Struct>
-  <Interface Name="Coffee.ICoffeeTank" Collapsed="true">
-    <Position X="11.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAwABAAAAAAgAABAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Types\interfaces\ICoffeeTank.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Coffee.IElectricDevice" Collapsed="true">
-    <Position X="11.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAAAAAACAAAAAAAAAAAAAAAAABAAA=</HashCode>
-      <FileName>Types\interfaces\IElectricDevice.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Coffee.IWaterTank" Collapsed="true">
-    <Position X="11.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAwABAAAAAAAAAAAAEAAIAAAEAAAAAAA=</HashCode>
-      <FileName>Types\interfaces\IWaterTank.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Coffee.ICupCartridge" Collapsed="true">
-    <Position X="11.5" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
-      <FileName>Types\interfaces\ICupCartridge.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="Coffee.IMilkTank" Collapsed="true">
-    <Position X="11.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Types\interfaces\IMilkTank.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Delegate Name="Coffee.ButtonPressedHanler">
-    <Position X="6" Y="3.25" Width="1.5" />
+    <Position X="8.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Types\delegates\ButtonPressedHanler.cs</FileName>
-    </TypeIdentifier>
-  </Delegate>
-  <Delegate Name="Coffee.WaterVolumeChangedHandler">
-    <Position X="9.25" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAA=</HashCode>
-      <FileName>WaterVolumeChangedHandler.cs</FileName>
-    </TypeIdentifier>
-  </Delegate>
-  <Delegate Name="Coffee.WaterTemperatureChangedHandler">
-    <Position X="12.75" Y="6.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>WaterVolumeChangedHandler.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Font Name="Segoe UI" Size="9" />

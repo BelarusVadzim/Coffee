@@ -6,40 +6,57 @@ using System.Text;
 using System.Threading;
 
 namespace Coffee {
-    public class Boiler : StandartWaterTank {
+    public class Boiler : Tank {
 
-        private const int AmbientTemperature = 20;
-       // private int mass = 0;
-        private const double HeatCapacity = 4.187;
+        private const int ambientTemperature = 20; // Пока константа, затем добавлю возможность менять
+        private const double heatCapacity = 4.187;
 
+        /// <summary>
+        /// Объм воды в бойлере
+        /// </summary>
+        public int WaterVolume {
+            get { return base.ContentVolume; }
+        }
 
-
+        /// <summary>
+        /// Максимальный объм воды в бойлере
+        /// </summary>
+        public int MaxBoilerVolume {
+            get {return base.MaximumVolume; }
+        }
+        
 
         /// <summary>
         /// Мощность бойлера.
         /// </summary>
         public int Power { get; private set; }
         
+        public void AddWater(int AmountToAdd) {
+            base.Add(AmountToAdd);
+        }
 
 
         public Boiler(int FullVolume, int Power) : base(FullVolume) {
             this.Power = Power;
         }
 
-        private void test(object O) {
-
-        }
-
-        public double WarmUp(double Temperature) {
-            double result = default(double);
-            Timer T = new Timer(test);
-            result = (double)ContentVolume/1000 * (Temperature - AmbientTemperature) * 4187 / Power;
+        public double WarmUp(double TargetTemperature) {
+            double result = default(double); //Время требуемое для кипячения воды
+           // Timer T = new Timer(test);
+            result = (double)ContentVolume/1000 * (TargetTemperature - ambientTemperature) * 4187 / Power;
+            Console.WriteLine("Boiler => {0} mls of {1} C° water take {2} sec for Warming up to {3} C° ", 
+                ContentVolume, ambientTemperature, result, TargetTemperature);
             return result;
             
         }
 
-        public void Drain() {
-            
+        public int Drain() {
+            return base.Take(ContentVolume);
+        }
+
+        public override string ToString() {
+            return string.Format("Boiler => MaximumVolume: {0}, ContentVolume: {1}, Power: {2}, IsFull: {3}, IsEmpty: {4}",
+                this.MaxBoilerVolume, this.WaterVolume, this.Power, IsFull, IsEmpty);
         }
     }
 }
