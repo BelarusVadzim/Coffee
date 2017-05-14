@@ -10,7 +10,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABgAAAAAAAACAAAAAAAAgAAAAAAAABAAA=</HashCode>
+      <HashCode>AAAEAAAAAAABwAAAAABAACAAAAAgAAgAAAAAAAATAAA=</HashCode>
       <FileName>Types\classes\CoffeeMaker.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -37,24 +37,93 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.Types.Tank">
-    <Position X="0.75" Y="7.25" Width="1.25" />
+    <Position X="3.75" Y="7.5" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAJAAAAAAAAAAwAFAAAAAAAAAAAAAAAIAAEAAAAIAAA=</HashCode>
+      <HashCode>AAJAAAAAAAAAAwAFAAAAAAAAAAAACAAIAAEAAAAIAAA=</HashCode>
       <FileName>Types\classes\Tank.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Coffee.CupCartridge" Collapsed="true">
-    <Position X="2.5" Y="7.25" Width="1.5" />
+  <Class Name="Coffee.StandartCupCartridge" Collapsed="true">
+    <Position X="5.5" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAACAAAAAAAAACAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAQAAAACAAAAAAAAACAAIAAAACAAAAAAAAQAAAAA=</HashCode>
       <FileName>Types\classes\CupCartridge.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Coffee.Boiler">
-    <Position X="2.25" Y="3.75" Width="1.5" />
+  <Class Name="Coffee.StandartBoiler" Collapsed="true">
+    <Position X="0.75" Y="8" Width="1.5" />
+    <InheritanceLine Type="Coffee.Types.Tank" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="9.02" />
+        <Point X="3.544" Y="9.02" />
+        <Point X="3.544" Y="8.94" />
+        <Point X="3.125" Y="8.94" />
+        <Point X="3.125" Y="8.346" />
+        <Point X="2.25" Y="8.346" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAgAAAAAAAAQAAJAAAAAAAQAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAACEAAgBAAAAAQAAAAABAEAAAAAQAAA=</HashCode>
       <FileName>Types\classes\Boiler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Coffee.StandartWaterTank" Collapsed="true">
+    <Position X="0.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAABABAAAAAACAAAAACEgAAAAAA=</HashCode>
+      <FileName>Types\classes\StandartWaterTank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Coffee.StandartCoffeeTank" Collapsed="true">
+    <Position X="0.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAFAAAAABAAABAACAAAAACAAAAAAAA=</HashCode>
+      <FileName>Types\classes\StandartCoffeeTank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Coffee.StandartSugarTank" Collapsed="true">
+    <Position X="0.75" Y="11" Width="1.5" />
+    <InheritanceLine Type="Coffee.Types.Tank" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="10.87" />
+        <Point X="3.706" Y="10.87" />
+        <Point X="3.706" Y="10.665" />
+        <Point X="2.856" Y="10.665" />
+        <Point X="2.856" Y="11.375" />
+        <Point X="2.25" Y="11.375" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAIGBAAAgCAAAAAAAA=</HashCode>
+      <FileName>Types\classes\StandartSugarTank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Coffee.StandartMilkTank" Collapsed="true">
+    <Position X="5.5" Y="10" Width="1.5" />
+    <InheritanceLine Type="Coffee.Types.Tank" FixedFromPoint="true">
+      <Path>
+        <Point X="5" Y="10.738" />
+        <Point X="5.24" Y="10.738" />
+        <Point X="5.24" Y="10.346" />
+        <Point X="5.5" Y="10.346" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAEAAiAAAAAAAAECAAAAACAAAAAAAA=</HashCode>
+      <FileName>Types\classes\StandartMilkTank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Coffee.CoffeeMakerController">
+    <Position X="3.75" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAABABAAAAAAIAAAAIAAQgAAAAAABAAACA=</HashCode>
+      <FileName>CoffeeMakerController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Coffee.Button">

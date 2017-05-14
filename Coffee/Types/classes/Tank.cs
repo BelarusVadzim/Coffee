@@ -82,6 +82,16 @@ namespace Coffee.Types {
             return Add(10);
         }
 
+        public virtual int Fill() {
+            int result = default(int);
+            while (!IsFull) {
+                result += Add();
+            }
+            return result;
+        }
+
+
+
         /// <summary>
         /// Удаляет содержимое в указанном количестве за раз (мл). Если объм содержимого достигает 0, то вызывается событие TankIsEmpty.
         /// </summary>
@@ -99,14 +109,16 @@ namespace Coffee.Types {
             if(ContentVolume - AmountToTake < MaximumVolume)
             IsFull = false;
             Console.WriteLine("Try to teake {0} mls", AmountToTake);
-            if (ContentVolume- AmountToTake <= 0) {  //Еслі остаток в баке меньше того колічества которое мы хотім взять
+            if (ContentVolume- AmountToTake <= 0) {  //Если остаток в баке меньше того количества которое мы хотим взять
                 result = ContentVolume;                // Остаток бака полностью переходит в число содержимого, которое мы хотели ихъять
                 ContentVolume = 0; ;                 // Содержімому бака прісваіваем 0;
                 IsEmpty = true;                      
                 if (TankIsEmpty != null)
                     TankIsEmpty(this, new EventArgs());  // Вызываем событие TankIsEmpty
+            } else {
+                ContentVolume -= AmountToTake;
             }
-            Console.WriteLine("{0} mls was deleted.", result);
+            Console.WriteLine("{0} mls was deleted.  WaterTankVolume now is {1}", result, ContentVolume);
             return result;                                 
         }
         protected int Take() {

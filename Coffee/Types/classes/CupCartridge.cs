@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 
 namespace Coffee {
-    public class CupCartridge : Tank {
-        public CupCartridge(int FullVolume) : base(FullVolume) {
+    public class StandartCupCartridge : Tank, ICupCartridge {
+        public StandartCupCartridge(int FullVolume) : base(FullVolume) {
         }
 
         public int AmountOfCups {
-            get { return ContentVolume; }
-            //set { Amount = value; }
+            get { return base.ContentVolume; }
         }
 
         public int AddCup() {
@@ -21,6 +20,11 @@ namespace Coffee {
         public int AddCups(int AmountOfCups) {
             return Add(AmountOfCups);
         }
+
+        public override int Fill() {
+            return base.Fill();
+        }
+
 
         public int TakeCup() {
             return base.Take();

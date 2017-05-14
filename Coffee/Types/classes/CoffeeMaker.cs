@@ -10,12 +10,30 @@ namespace Coffee
 
         internal byte CurrentWaterTemperature { get; set; }
 
+        protected IBoiler Boiler { get; }
+        protected IWaterTank WaterTank { get; }
+        protected ICoffeeTank CoffeeTank { get; }
+        protected IMilkTank MilkTank { get; }
+        protected ISugarTank SugarTank { get; }
+        protected ICupCartridge CupCartridge { get; }
+
+
         //private IWaterTank WaterTank { get; set; }
         //private ICoffeeTank CoffeeTank { get; set; }
         //private ICupCartridge CupCartridge { get; set; }
         //private IMilkTank MilkTank { get; set; }
         //private ISugarTank SugarTank{ get; set; }
 
+
+        public CoffeeMaker(IBoiler Boiler, IWaterTank WaterTank, ICoffeeTank CoffeeTank,
+            IMilkTank MilkTank, ISugarTank SugarTank, ICupCartridge CupCartridge) {
+            this.Boiler = Boiler;
+            this.WaterTank = WaterTank;
+            this.CoffeeTank = CoffeeTank;
+            this.MilkTank = MilkTank;
+            this.SugarTank = SugarTank;
+            this.CupCartridge = CupCartridge;
+        }
 
         public void SwitchOff() {
             IsPowered = false;
@@ -24,7 +42,19 @@ namespace Coffee
             IsPowered = true;
         }
 
+
+
+
         internal void MakeCoffee(CoffeeType type) {
+
+            int water = default(int);
+            Console.WriteLine(WaterTank.ToString());
+            water = WaterTank.Fill();
+            Console.WriteLine("Добавлено {0} мл", water);
+            Console.WriteLine(WaterTank.ToString());
+            water = WaterTank.TakeWater(200);
+            Boiler.AddWater(water);
+            Boiler.WarmUp(100);
             Console.WriteLine("Making coffee {0}", type.ToString());
         }
 

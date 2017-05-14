@@ -11,14 +11,18 @@ namespace Coffee
     {
         static void Main(string[] args)
         {
-            Boiler B = new Boiler(1000, 1000);
-            Console.WriteLine(B.ToString());
-            B.AddWater(1700);
-            Console.WriteLine(B.ToString());
-            B.WarmUp(100);
-            Console.WriteLine(B.ToString());
-            B.Drain();
-            Console.WriteLine(B.ToString());
+            StandartBoiler B = new StandartBoiler(1000, 2500);
+            StandartWaterTank WT = new StandartWaterTank(5000);
+            StandartCoffeeTank CT = new StandartCoffeeTank(3000);
+            StandartMilkTank MT = new StandartMilkTank(3000);
+            StandartSugarTank ST = new StandartSugarTank(2000);
+            StandartCupCartridge CC = new StandartCupCartridge(1000);
+
+
+            CoffeeMaker CM = new CoffeeMaker(B, WT, CT, MT, ST, CC);
+            CM.MakeCoffee(CoffeeMaker.CoffeeType.americano);
+
+            Console.WriteLine(WT.ToString());
 
         }
 

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 
 namespace Coffee {
-    public class Boiler : Tank {
+    public class StandartBoiler : Tank, IBoiler {
 
         private const int ambientTemperature = 20; // Пока константа, затем добавлю возможность менять
         private const double heatCapacity = 4.187;
@@ -36,11 +36,12 @@ namespace Coffee {
         }
 
 
-        public Boiler(int FullVolume, int Power) : base(FullVolume) {
+        public StandartBoiler(int FullVolume, int Power) : base(FullVolume) {
             this.Power = Power;
         }
 
         public double WarmUp(double TargetTemperature) {
+            if (WaterVolume == 0) return 0;
             double result = default(double); //Время требуемое для кипячения воды
            // Timer T = new Timer(test);
             result = (double)ContentVolume/1000 * (TargetTemperature - ambientTemperature) * 4187 / Power;
