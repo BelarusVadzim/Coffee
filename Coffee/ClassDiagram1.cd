@@ -16,16 +16,16 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Coffee.Person">
-    <Position X="3.75" Y="0.75" Width="1.5" />
+    <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAQAIAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Types\classes\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.Keyboard">
-    <Position X="5.5" Y="0.75" Width="1.5" />
+    <Position X="3" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAgAAAAAAAAAABAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Types\classes\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -120,19 +120,19 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Coffee.CoffeeMakerController">
-    <Position X="3.75" Y="4" Width="1.75" />
+    <Position X="3" Y="3.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAABABAAAAAAIAAAAIAAQgAAAAAABAAACA=</HashCode>
-      <FileName>CoffeeMakerController.cs</FileName>
+      <HashCode>AAAACAAIAAAABABAAAAAAIAAAAIAAQgAAAAAABAAACA=</HashCode>
+      <FileName>Types\classes\CoffeeMakerController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="Coffee.Button">
-    <Position X="7.75" Y="0.75" Width="1.5" />
+  <Class Name="Coffee.Button">
+    <Position X="5.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Types\structures\Button.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAgAAAEAAA=</HashCode>
+      <FileName>Types\classes\Button.cs</FileName>
     </TypeIdentifier>
-  </Struct>
+  </Class>
   <Delegate Name="Coffee.ButtonPressedHanler">
     <Position X="8.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>

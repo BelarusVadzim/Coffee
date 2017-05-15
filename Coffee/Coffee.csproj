@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoffeeMakerController.cs" />
+    <Compile Include="Types\classes\CoffeeMakerController.cs" />
     <Compile Include="IMilkTank.cs" />
     <Compile Include="Types\classes\StandartMilkTank.cs" />
     <Compile Include="Types\interfaces\ICupCartridge.cs" />
@@ -55,7 +55,7 @@
     <Compile Include="Types\interfaces\IWaterTank.cs" />
     <Compile Include="Types\interfaces\IBoiler.cs" />
     <Compile Include="Types\interfaces\IElectricDevice.cs" />
-    <Compile Include="Types\structures\Button.cs" />
+    <Compile Include="Types\classes\Button.cs" />
     <Compile Include="Types\delegates\ButtonPressedEventArgs.cs" />
     <Compile Include="Types\delegates\ButtonPressedHanler.cs" />
     <Compile Include="Types\classes\CoffeeMaker.cs" />
@@ -70,6 +70,8 @@
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Types\structures\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

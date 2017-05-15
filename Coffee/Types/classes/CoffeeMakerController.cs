@@ -7,6 +7,8 @@ namespace Coffee {
     public class CoffeeMakerController {
         public event EventHandler StateChanged;
 
+        public Keyboard KeyBoard { get; set; }
+
         //public String StateMessage {
         //    get => default(int);
         //    set {

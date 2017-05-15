@@ -5,47 +5,12 @@ using System.Text;
 
 namespace Coffee {
     public class ButtonPressedEventArgs: EventArgs {
-        public string Message {
-            get => default(string);
-            set {
-            }
-        }
-
-        public int ButtonValue {
-            get => default(int);
-            set {
-            }
-        }
-    }
-
-    public class WaterVolumeChangedEventArgs : EventArgs {
         public string Message { get; set; }
-        public int NewVolume { get; set; }
-        public int OldVolume { get; set; }
-        public WaterVolumeChangedEventArgs() {
-            Message = default(string);
-            NewVolume = default(int);
-            OldVolume = default(int);
-        }
-    }
+        public int ButtonValue { get; set; }
 
-    public class WaterTemperatureChangedEventArgs : EventArgs {
-        public string Message {
-            get => default(string);
-            set {
-            }
-        }
-
-        public double NewTemperature {
-            get => default(int);
-            set {
-            }
-        }
-
-        public double OldTemperature {
-            get => default(int);
-            set {
-            }
+        public ButtonPressedEventArgs(int ButtonValue, string Message) {
+            this.ButtonValue = ButtonValue;
+            this.Message = Message;
         }
     }
 }

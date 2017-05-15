@@ -17,10 +17,14 @@ namespace Coffee
             StandartMilkTank MT = new StandartMilkTank(3000);
             StandartSugarTank ST = new StandartSugarTank(2000);
             StandartCupCartridge CC = new StandartCupCartridge(1000);
-
-
             CoffeeMaker CM = new CoffeeMaker(B, WT, CT, MT, ST, CC);
             CM.MakeCoffee(CoffeeMaker.CoffeeType.americano);
+            CoffeeMakerController Controller = new CoffeeMakerController();
+
+            List<Button> Buttons = new List<Button>() { new Button(1, "one"), new Button(2, "two"), new Button(3, "Three") };
+            Keyboard KB = new Keyboard(Buttons);
+            Controller.KeyBoard = KB;
+            
 
             Console.WriteLine(WT.ToString());
 
