@@ -55,9 +55,8 @@ namespace Coffee.Types {
         protected int Add(int AmountToAdd) {
             if (AmountToAdd <= 0)
                 throw new ArgumentException("AmountToAdd should be a positive value.");
-            if (IsFull) { 
-                if (TankIsFull != null)
-                    TankIsFull(this, new EventArgs());
+            if (IsFull) {
+                TankIsFull?.Invoke(this, new EventArgs());
                 return 0;
             }
             int result = AmountToAdd;  //result переменная, которая показывает какое количество содержимого будет добавлено с учтом вместимости бака
@@ -72,8 +71,7 @@ namespace Coffee.Types {
                 ContentVolume += AmountToAdd;
             }
             if (IsFull) {
-                if (TankIsFull != null)
-                    TankIsFull(this, new EventArgs());
+                TankIsFull?.Invoke(this, new EventArgs());
             }
             Console.WriteLine("{0} мл было добавлено.", result);
             return result;   //Показывается сколько мл содержимого смогло быть добавлено. (с учтом вместимости бака)
@@ -100,9 +98,8 @@ namespace Coffee.Types {
         protected int Take(int AmountToTake) {
             if (AmountToTake <= 0)
                 throw new Exception("Amount should be a positive value.");
-            if (IsEmpty) { 
-                if (TankIsEmpty != null)
-                    TankIsEmpty(this, new EventArgs());
+            if (IsEmpty) {
+                TankIsEmpty?.Invoke(this, new EventArgs());
                 return 0;
             }
             int result = AmountToTake;                 // Число указывающее сколько содержимого мы берем.
@@ -112,9 +109,8 @@ namespace Coffee.Types {
             if (ContentVolume- AmountToTake <= 0) {  //Если остаток в баке меньше того количества которое мы хотим взять
                 result = ContentVolume;                // Остаток бака полностью переходит в число содержимого, которое мы хотели ихъять
                 ContentVolume = 0; ;                 // Содержімому бака прісваіваем 0;
-                IsEmpty = true;                      
-                if (TankIsEmpty != null)
-                    TankIsEmpty(this, new EventArgs());  // Вызываем событие TankIsEmpty
+                IsEmpty = true;
+                TankIsEmpty?.Invoke(this, new EventArgs());  // Вызываем событие TankIsEmpty
             } else {
                 ContentVolume -= AmountToTake;
             }

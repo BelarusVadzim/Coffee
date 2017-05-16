@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Coffee.CoffeeMaker;
 
 namespace Coffee {
     public class CoffeeMakerController {
         public event EventHandler StateChanged;
 
-        public Keyboard KeyBoard { get; set; }
-
-        //public String StateMessage {
-        //    get => default(int);
-        //    set {
-        //    }
-        //}
-
-        protected void MakeCoffee() {
-            throw new System.NotImplementedException();
+        protected void MakeCoffee(CoffeeType type) {
+            Console.WriteLine(type.ToString());          
         }
 
         protected void PrepareCup() {
@@ -39,14 +32,24 @@ namespace Coffee {
             throw new System.NotImplementedException();
         }
 
-
-
         protected void ChangeState() {
             throw new System.NotImplementedException();
         }
 
-        public void GetInputParams() {
-            throw new System.NotImplementedException();
+
+
+        public void InputCommand(int CommandValue) {
+            Console.WriteLine("Контроллер получил входящий параметр: {0}", CommandValue);
+            int a = (int)CoffeeType.americano;
+            MakeCoffee(CoffeeType.americano );
+            switch (CommandValue) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

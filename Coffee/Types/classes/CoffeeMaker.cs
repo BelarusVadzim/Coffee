@@ -17,6 +17,8 @@ namespace Coffee
         protected ISugarTank SugarTank { get; }
         protected ICupCartridge CupCartridge { get; }
 
+        public Keyboard StandartKeyboard { get; set; }
+
 
         //private IWaterTank WaterTank { get; set; }
         //private ICoffeeTank CoffeeTank { get; set; }

@@ -10,8 +10,7 @@ namespace Coffee {
 
         public event EventHandler<ButtonPressedEventArgs> Pressed;
         public void Press() {
-            if(Pressed != null)
-                Pressed(this, new ButtonPressedEventArgs(this.Value, this.Name));
+            Pressed?.Invoke(this, new ButtonPressedEventArgs(this.Value, this.Name));
         }
 
         public Button(int Value, string Name) {

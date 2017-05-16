@@ -6,21 +6,19 @@ using System.Text;
 namespace Coffee {
     public class Keyboard {
 
-        public event EventHandler<ButtonPressedEventArgs> ButtonPressed;
+       // public event EventHandler<ButtonPressedEventArgs> ButtonPressed;
 
         public List<Button> Buttons { get; set; }
         public string TextMessage { get; set; }
+        public CoffeeMakerController Controller { get; private set; }
+        public void ConnectToController(CoffeeMakerController Controller) {
+            this.Controller = Controller;
+        }
 
         public Keyboard(List<Button> Buttons) {
             this.Buttons = Buttons;
             foreach (var item in Buttons) {
-                // item.Pressed += ((o, i) => ButtonPressed(o, new ButtonPressedEventArgs(i.Value, i.Name)));
-                // item.Pressed += delegate { ButtonPressed(this, new ButtonPressedEventArgs(item.Value, item.Name)); };
-                // item.Pressed += Item_Pressed;
-                item.Pressed += (o, i) => {
-                    Console.WriteLine("{0} {1}", i.Message, i.ButtonValue);
-                    Console.ReadLine();
-                };
+                item.Pressed += (o, i) => Controller?.InputCommand(i.ButtonValue);
             }
         }
 
