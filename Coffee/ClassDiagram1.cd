@@ -30,7 +30,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.ButtonPressedEventArgs">
-    <Position X="7.75" Y="2.75" Width="2.25" />
+    <Position X="7.5" Y="0.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAgAA=</HashCode>
       <FileName>Types\delegates\ButtonPressedEventArgs.cs</FileName>
@@ -134,7 +134,7 @@
     </TypeIdentifier>
   </Class>
   <Delegate Name="Coffee.ButtonPressedHanler">
-    <Position X="8.25" Y="4.25" Width="1.5" />
+    <Position X="7.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Types\delegates\ButtonPressedHanler.cs</FileName>

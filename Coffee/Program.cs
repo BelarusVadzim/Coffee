@@ -24,9 +24,11 @@ namespace Coffee
             List<Button> Buttons = new List<Button>() { new Button(1, "one"), new Button(2, "two"), new Button(3, "Three") };
             Keyboard KB = new Keyboard(Buttons);
             Controller.KeyBoard = KB;
-            
+            KB.Buttons[0].Press();
+            KB.Buttons[1].Press();
+            KB.Buttons[2].Press();
 
-            Console.WriteLine(WT.ToString());
+            //Console.WriteLine(WT.ToString());
 
         }
 

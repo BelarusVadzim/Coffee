@@ -14,13 +14,17 @@ namespace Coffee {
         public Keyboard(List<Button> Buttons) {
             this.Buttons = Buttons;
             foreach (var item in Buttons) {
-                //item.Pressed += ((Button i) => ButtonPressed(this, new ButtonPressedEventArgs(i.Value, i.Name)));
-                item.Pressed += delegate { ButtonPressed(this, new ButtonPressedEventArgs(item.Value, item.Name)); };
-               // item.Pressed += (i) => { ButtonPressed(new ButtonPressedEventArgs(item.Value, item.Name)); };
+                // item.Pressed += ((o, i) => ButtonPressed(o, new ButtonPressedEventArgs(i.Value, i.Name)));
+                // item.Pressed += delegate { ButtonPressed(this, new ButtonPressedEventArgs(item.Value, item.Name)); };
+                // item.Pressed += Item_Pressed;
+                item.Pressed += (o, i) => {
+                    Console.WriteLine("{0} {1}", i.Message, i.ButtonValue);
+                    Console.ReadLine();
+                };
             }
         }
 
-
+       
 
         /// <summary>
         /// Вызывает событие ButtoPressed
