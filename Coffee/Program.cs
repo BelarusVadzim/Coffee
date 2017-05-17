@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Coffee.CoffeeMaker;
 
 namespace Coffee
 {
@@ -30,10 +31,48 @@ namespace Coffee
             COFFEEMAKER.StandartKeyboard.Buttons[1].Press();
             COFFEEMAKER.StandartKeyboard.Buttons[2].Press();
 
-            //Console.WriteLine(WT.ToString());
+            Action<string> Vova;
+            Action<int, int> Boris;
+            Action Dasha;
+            EventHandler Petya;
+            Action1 Vala;
+            Action2<string> Pasha;
+
+
+            Dasha = () => { Console.WriteLine("test"); };
+            Petya = (o, i) => { Console.WriteLine("{0} - {1}", o, i); };
+            Vova = (i) => { Console.WriteLine(i); };
+            Vala = (i) => { Console.WriteLine(i); };
+            Pasha = (i) => {
+                Console.WriteLine(i);
+                return i;
+            };
+            Boris  = (i, j) => Console.WriteLine(i+j);
+
+           
+
+
+
+            // MyAction D = new MyAction((i) => Console.WriteLine(i));
+            string t = default(string);
+            Petya("test", new EventArgs());
+            Vova("Привет от Вовы");
+            Dasha();
+            t = Pasha("475455");
+            Boris(28, 37);
+            Console.WriteLine(t);
+
+            Dictionary<CoffeeType, Button> kbd = new Dictionary<CoffeeType, Button>();
+            kbd.Add(CoffeeType.americano, COFFEEMAKER.StandartKeyboard.Buttons[0]);
+            kbd.Add(CoffeeType.cappuccino, COFFEEMAKER.StandartKeyboard.Buttons[1]);
+            kbd.Add(CoffeeType.espesso, COFFEEMAKER.StandartKeyboard.Buttons[2]);
+            kbd[ CoffeeType.espesso ].Press();
+
 
         }
 
+        public delegate void Action1(string s);
+        public delegate T Action2<T>(T param);
         private static void WaterTank_TankIsFull(object sender, EventArgs e) {
             Console.WriteLine("Tank is Full");
         }

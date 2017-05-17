@@ -17,6 +17,10 @@ namespace Coffee {
             this.Value = Value;
             this.Name = Name;
         }
+
+        public override string ToString() {
+            return string.Format("Name: {0}, Value: {1}", Name, Value);
+        }
     }
 
     
