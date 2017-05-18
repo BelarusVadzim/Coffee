@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Coffee.CoffeeMaker;
 
 namespace Coffee {
     public class Button {
-        public int Value { get; set; }
+        public ButtonsType Value { get; set; }
         public string Name { get; set; }
 
         public event EventHandler<ButtonPressedEventArgs> Pressed;
@@ -13,7 +14,7 @@ namespace Coffee {
             Pressed?.Invoke(this, new ButtonPressedEventArgs(this.Value, this.Name));
         }
 
-        public Button(int Value, string Name) {
+        public Button(ButtonsType Value, string Name) {
             this.Value = Value;
             this.Name = Name;
         }

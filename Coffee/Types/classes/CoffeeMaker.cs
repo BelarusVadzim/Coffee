@@ -17,7 +17,7 @@ namespace Coffee
         protected ISugarTank SugarTank { get; }
         protected ICupCartridge CupCartridge { get; }
 
-        public Keyboard StandartKeyboard { get; set; }
+        public StandartKeyboard StandartKeyboard { get; set; }
 
 
         //private IWaterTank WaterTank { get; set; }
@@ -47,7 +47,7 @@ namespace Coffee
 
 
 
-        internal void MakeCoffee(CoffeeType type) {
+        internal void MakeCoffee(ButtonsType type) {
 
             int water = default(int);
             Console.WriteLine(WaterTank.ToString());
@@ -60,8 +60,13 @@ namespace Coffee
             Console.WriteLine("Making coffee {0}", type.ToString());
         }
 
-        public enum CoffeeType {
-            espesso, americano, cappuccino
+        public enum ButtonsType {
+            espesso = 0,
+            americano = 1,
+            cappuccino = 2,
+            inSugar = 3,
+            deSugar = 4,
+            start =5
         }
     }
 }

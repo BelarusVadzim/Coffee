@@ -19,17 +19,22 @@ namespace Coffee
             StandartSugarTank ST = new StandartSugarTank(2000);
             StandartCupCartridge CC = new StandartCupCartridge(1000);
             CoffeeMaker COFFEEMAKER = new CoffeeMaker(B, WT, CT, MT, ST, CC);
-            COFFEEMAKER.MakeCoffee(CoffeeMaker.CoffeeType.americano);
+            COFFEEMAKER.MakeCoffee(CoffeeMaker.ButtonsType.americano);
             CoffeeMakerController Controller = new CoffeeMakerController();
 
-            List<Button> Buttons = new List<Button>() { new Button(1, "one"), new Button(2, "two"), new Button(3, "Three") };
-            Keyboard KB = new Keyboard(Buttons);
+
+
+            Dictionary<ButtonsType, Button> Buttons = new Dictionary<ButtonsType, Button>();
+            initButtonsTemp(out Buttons);
+            StandartKeyboard KB = new StandartKeyboard(Buttons);
             KB.ConnectToController(Controller);
             COFFEEMAKER.StandartKeyboard = KB;
 
-            COFFEEMAKER.StandartKeyboard.Buttons[0].Press();
-            COFFEEMAKER.StandartKeyboard.Buttons[1].Press();
-            COFFEEMAKER.StandartKeyboard.Buttons[2].Press();
+            COFFEEMAKER.StandartKeyboard.Buttons[ButtonsType.americano].Press();
+            COFFEEMAKER.StandartKeyboard.Buttons[ButtonsType.cappuccino].Press();
+            COFFEEMAKER.StandartKeyboard.Buttons[ButtonsType.start].Press();
+            COFFEEMAKER.StandartKeyboard.Buttons[ButtonsType.cappuccino].Press();
+            COFFEEMAKER.StandartKeyboard.Buttons[ButtonsType.cappuccino].Press();
 
             Action<string> Vova;
             Action<int, int> Boris;
@@ -62,11 +67,8 @@ namespace Coffee
             Boris(28, 37);
             Console.WriteLine(t);
 
-            Dictionary<CoffeeType, Button> kbd = new Dictionary<CoffeeType, Button>();
-            kbd.Add(CoffeeType.americano, COFFEEMAKER.StandartKeyboard.Buttons[0]);
-            kbd.Add(CoffeeType.cappuccino, COFFEEMAKER.StandartKeyboard.Buttons[1]);
-            kbd.Add(CoffeeType.espesso, COFFEEMAKER.StandartKeyboard.Buttons[2]);
-            kbd[ CoffeeType.espesso ].Press();
+            
+           
 
 
         }
@@ -80,6 +82,21 @@ namespace Coffee
         private static void W_TankIsEmpty(object sender, EventArgs e) {
             Console.WriteLine("Tank is Empty");
         }
+
+        private static void initButtonsTemp(out Dictionary<ButtonsType, Button> Buttons) {
+            Buttons = new Dictionary<ButtonsType, Button>();
+            MakeButton(ButtonsType.americano, Buttons);
+            MakeButton(ButtonsType.cappuccino, Buttons);
+            MakeButton(ButtonsType.espesso, Buttons);
+            MakeButton(ButtonsType.inSugar, Buttons);
+            MakeButton(ButtonsType.deSugar, Buttons);
+            MakeButton(ButtonsType.start, Buttons);
+        }
+        private static void MakeButton(ButtonsType bt, Dictionary<ButtonsType, Button> Buttons) {
+            Buttons.Add(bt, new Button(bt, bt.ToString()));
+        }
+
+
     }
 
     

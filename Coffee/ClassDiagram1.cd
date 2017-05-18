@@ -3,14 +3,14 @@
   <Class Name="Coffee.CoffeeMaker">
     <Position X="0.5" Y="0.75" Width="1.5" />
     <NestedTypes>
-      <Enum Name="Coffee.CoffeeMaker.CoffeeType" Collapsed="true">
+      <Enum Name="Coffee.CoffeeMaker.ButtonsType" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Types\classes\CoffeeMaker.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAABwAAAAABAACAAAAAgAAgAAAAAAAATAAA=</HashCode>
+      <HashCode>AAAEAAIAAAABwAAAAABAACAAAAAgAAgAAAAAAAATAAA=</HashCode>
       <FileName>Types\classes\CoffeeMaker.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -22,10 +22,10 @@
       <FileName>Types\classes\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Coffee.Keyboard">
+  <Class Name="Coffee.StandartKeyboard">
     <Position X="3" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAgAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Types\classes\Keyboard.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -122,14 +122,14 @@
   <Class Name="Coffee.CoffeeMakerController">
     <Position X="3" Y="3.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAACAAIAAAABABAAAAAAIAAAAIAAQgAAAAAABAAACA=</HashCode>
+      <HashCode>AAAAKAAAAAAABABAAAAAAAAAAAIAAQgAAAAAABAAACA=</HashCode>
       <FileName>Types\classes\CoffeeMakerController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Coffee.Button">
     <Position X="5.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAgAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAQAAgAAAEAAA=</HashCode>
       <FileName>Types\classes\Button.cs</FileName>
     </TypeIdentifier>
   </Class>

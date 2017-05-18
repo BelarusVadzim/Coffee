@@ -8,7 +8,7 @@ namespace Coffee {
     public class CoffeeMakerController {
         public event EventHandler StateChanged;
 
-        protected void MakeCoffee(CoffeeType type) {
+        protected void MakeCoffee(ButtonsType type) {
             Console.WriteLine(type.ToString());          
         }
 
@@ -38,14 +38,13 @@ namespace Coffee {
 
 
 
-        public void InputCommand(int CommandValue) {
+        public void InputCommand(ButtonsType CommandValue) {
             Console.WriteLine("Контроллер получил входящий параметр: {0}", CommandValue);
-            int a = (int)CoffeeType.americano;
-            MakeCoffee(CoffeeType.americano );
+            MakeCoffee(CommandValue);
             switch (CommandValue) {
-                case 1:
+                case  ButtonsType.americano:
                     break;
-                case 2:
+                case  ButtonsType.cappuccino:
                     break;
                 default:
                     break;

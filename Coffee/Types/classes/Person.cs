@@ -23,7 +23,7 @@ namespace Coffee {
             }
         }
 
-        public CoffeeMaker.CoffeeType FavoritCoffeeType {
+        public CoffeeMaker.ButtonsType FavoritCoffeeType {
             get => default(int);
             set {
             }
