@@ -30,11 +30,12 @@ namespace Coffee
             KB.ConnectToController(Controller);
             COFFEEMAKER.Keyboard = KB;
 
-            COFFEEMAKER.Keyboard.Buttons[ButtonsType.americano].Press();
-            COFFEEMAKER.Keyboard.Buttons[ButtonsType.cappuccino].Press();
-            COFFEEMAKER.Keyboard.Buttons[ButtonsType.start].Press();
-            COFFEEMAKER.Keyboard.Buttons[ButtonsType.cappuccino].Press();
-            COFFEEMAKER.Keyboard.Buttons[ButtonsType.cappuccino].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.americano].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.cappuccino].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.start].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.cappuccino].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.espesso].Press();
+
 
             Action<string> Vova;
             Action<int, int> Boris;

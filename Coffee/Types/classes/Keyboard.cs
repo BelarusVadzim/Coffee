@@ -13,7 +13,17 @@ namespace Coffee {
         public Dictionary<ButtonsType, Button>   Buttons { get; set; }
         public string TextMessage { get; set; }
         public CoffeeMakerController Controller { get; private set; }
-        public void ConnectToController(CoffeeMakerController Controller) {
+        public Button this[ButtonsType BType] {
+            set {
+                Buttons[BType] = value;
+            }
+
+            get {
+                return Buttons[BType];
+            }
+        }
+
+public void ConnectToController(CoffeeMakerController Controller) {
             this.Controller = Controller;
         }
 
