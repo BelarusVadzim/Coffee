@@ -23,7 +23,7 @@ namespace Coffee {
             }
         }
 
-public void ConnectToController(CoffeeMakerController Controller) {
+        public void ConnectToController(CoffeeMakerController Controller) {
             this.Controller = Controller;
         }
 
@@ -33,21 +33,5 @@ public void ConnectToController(CoffeeMakerController Controller) {
                 item.Value.Pressed += (o, i) => Controller?.InputCommand(i.ButtonValue);
             }
         }
-
-
-       
-
-        /// <summary>
-        /// Вызывает событие ButtoPressed
-        /// </summary>
-        /// <param name="button">Кнопка, которая была нажата</param>
-        //public void PressButton(Button button) {
-        //    if(ButtonPressed != null) {
-        //        ButtonPressedEventArgs arg = new ButtonPressedEventArgs();
-        //        arg.ButtonValue = button.Value;
-        //        ButtonPressed(this, arg);
-        //    }
-
-        //}
     }
 }

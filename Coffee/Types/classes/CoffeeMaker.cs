@@ -16,8 +16,8 @@ namespace Coffee
         protected IMilkTank MilkTank { get; }
         protected ISugarTank SugarTank { get; }
         protected ICupCartridge CupCartridge { get; }
-
         public StandartKeyboard Keyboard { get; set; }
+        protected ICoffeeMakerController Controller { get;}
 
 
         //private IWaterTank WaterTank { get; set; }
@@ -47,7 +47,7 @@ namespace Coffee
 
 
 
-        internal void MakeCoffee(ButtonsType type) {
+        protected void MakeCoffee(ButtonsType type) {
 
             int water = default(int);
             Console.WriteLine(WaterTank.ToString());
@@ -59,6 +59,8 @@ namespace Coffee
             Boiler.WarmUp(100);
             Console.WriteLine("Making coffee {0}", type.ToString());
         }
+
+      
 
         public enum ButtonsType {
             espesso = 0,

@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoffeeMakerFactory.cs" />
     <Compile Include="Types\classes\CoffeeMakerController.cs" />
     <Compile Include="IMilkTank.cs" />
+    <Compile Include="Types\classes\ICoffeeMakerController.cs" />
     <Compile Include="Types\classes\StandartMilkTank.cs" />
     <Compile Include="Types\interfaces\ICupCartridge.cs" />
     <Compile Include="Types\interfaces\ISugarTank.cs" />

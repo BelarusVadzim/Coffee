@@ -12,30 +12,24 @@ namespace Coffee
     {
         static void Main(string[] args)
         {
-            StandartBoiler B = new StandartBoiler(1000, 2500);
-            StandartWaterTank WT = new StandartWaterTank(5000);
-            StandartCoffeeTank CT = new StandartCoffeeTank(3000);
-            StandartMilkTank MT = new StandartMilkTank(3000);
-            StandartSugarTank ST = new StandartSugarTank(2000);
-            StandartCupCartridge CC = new StandartCupCartridge(1000);
-            CoffeeMaker COFFEEMAKER = new CoffeeMaker(B, WT, CT, MT, ST, CC);
-            COFFEEMAKER.MakeCoffee(CoffeeMaker.ButtonsType.americano);
-            CoffeeMakerController Controller = new CoffeeMakerController();
+            CoffeeMaker COFFEEMAKER = CoffeeMakerFactory.CreateCoffeeMaker();
+
+           // CoffeeMakerController Controller = new CoffeeMakerController();
 
 
 
-            Dictionary<ButtonsType, Button> Buttons = new Dictionary<ButtonsType, Button>();
-            initButtonsTemp(out Buttons);
-            StandartKeyboard KB = new StandartKeyboard(Buttons);
-            KB.ConnectToController(Controller);
-            COFFEEMAKER.Keyboard = KB;
+           // Dictionary<ButtonsType, Button> Buttons = new Dictionary<ButtonsType, Button>();
+           // initButtonsTemp(out Buttons);
+           // StandartKeyboard KB = new StandartKeyboard(Buttons);
+           // KB.ConnectToController(Controller);
+           // COFFEEMAKER.Keyboard = KB;
 
             COFFEEMAKER.Keyboard[ButtonsType.americano].Press();
             COFFEEMAKER.Keyboard[ButtonsType.cappuccino].Press();
             COFFEEMAKER.Keyboard[ButtonsType.start].Press();
             COFFEEMAKER.Keyboard[ButtonsType.cappuccino].Press();
             COFFEEMAKER.Keyboard[ButtonsType.espesso].Press();
-
+        
 
             Action<string> Vova;
             Action<int, int> Boris;

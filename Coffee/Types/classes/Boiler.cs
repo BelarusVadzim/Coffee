@@ -42,11 +42,15 @@ namespace Coffee {
 
         public double WarmUp(double TargetTemperature) {
             if (WaterVolume == 0) return 0;
-            double result = default(double); //Время требуемое для кипячения воды
-           // Timer T = new Timer(test);
+            double result = default(double); 
             result = (double)ContentVolume/1000 * (TargetTemperature - ambientTemperature) * 4187 / Power;
+
+            Console.WriteLine("В бойлере {0} мл воды", ContentVolume);
             Console.WriteLine("Boiler => {0} mls of {1} C° water take {2} sec for Warming up to {3} C° ", 
                 ContentVolume, ambientTemperature, result, TargetTemperature);
+            Console.WriteLine((int)(result * 1000));
+            Thread.Sleep((int)(result * 1000));
+            Console.WriteLine("Вода нагрелась");
             return result;
             
         }

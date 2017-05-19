@@ -5,7 +5,7 @@ using System.Text;
 using static Coffee.CoffeeMaker;
 
 namespace Coffee {
-    public class CoffeeMakerController {
+    public class CoffeeMakerController : ICoffeeMakerController {
         public event EventHandler StateChanged;
 
         protected void MakeCoffee(ButtonsType type) {
