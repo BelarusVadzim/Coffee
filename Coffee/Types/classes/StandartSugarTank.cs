@@ -10,8 +10,12 @@ namespace Coffee {
         /// <summary>
         /// Объм сахара в контейнере
         /// </summary>
-        public int SugarVolume {
+        protected int SugarVolume {
             get { return base.ContentVolume; }
+        }
+
+        public new bool IsEmpty {
+            get { return base.IsEmpty; }
         }
 
         /// <summary>
@@ -25,22 +29,18 @@ namespace Coffee {
         }
 
         public int TakeSugar(int Amount) {
-            Mark("!!");
             return base.Take(Amount);
         }
 
         public int TakeSugar() {
-            Mark();
             return base.Take();
         }
 
         public int AddSugar() {
-            Mark();
             return base.Add();
         }
 
         public int AddSugar(int Amount) {
-            Mark();
             return base.Add(Amount);
         }
 
@@ -53,14 +53,5 @@ namespace Coffee {
             return string.Format("SugarTank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
                 this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
-
-        private void Mark() {
-            Console.WriteLine("SugarTank =>");
-        }
-
-        private void Mark(string s) {
-            Console.WriteLine(s);
-        }
-
     }
 }

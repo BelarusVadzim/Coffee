@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using static Coffee.CoffeeMaker;
 
 namespace Coffee {
-    public class StandartKeyboard : IKeyboard {
+    public class StandartKeyboard : IKeyboard, IEnumerable {
 
        // public event EventHandler<ButtonPressedEventArgs> ButtonPressed;
 
@@ -26,6 +27,12 @@ namespace Coffee {
         public void ConnectToController(StandartCoffeeMakerController Controller) {
             this.Controller = Controller;
         }
+
+        public IEnumerator GetEnumerator() {
+            return ((IEnumerable)Buttons).GetEnumerator();
+        }
+
+       
 
         public StandartKeyboard(Dictionary<ButtonsType, IButton> Buttons) {
             this.Buttons = Buttons;

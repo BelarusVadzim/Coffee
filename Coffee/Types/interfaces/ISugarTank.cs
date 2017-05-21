@@ -1,8 +1,7 @@
 ﻿namespace Coffee {
     public interface ISugarTank {
         int MaxSugarTankVolume { get; }
-        int SugarVolume { get; }
-
+        bool IsEmpty { get; }
         int AddSugar();
         int AddSugar(int Amount);
         int TakeSugar();

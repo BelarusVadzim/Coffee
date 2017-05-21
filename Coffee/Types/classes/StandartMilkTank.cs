@@ -15,14 +15,14 @@ namespace Coffee {
         }
 
         /// <summary>
-        /// Объм воды в бойлере
+        /// Объм молока в баке
         /// </summary>
         public int MilkVolume {
             get { return base.ContentVolume; }
         }
 
         /// <summary>
-        /// Максимальный объм воды в бойлере
+        /// Вместимость бака с молоком
         /// </summary>
         public int MaxMilkTankVolume {
             get { return base.MaximumVolume; }

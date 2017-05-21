@@ -10,9 +10,9 @@ namespace Coffee {
         private const int maxSugar = 15; 
         public event EventHandler<string> StateChanged;
         private int sugarValue = default(int);
-        private int coffeeValue = default(int);
-        private int waterValue = default(int);
-        private int milkValue = default(int);
+        private int coffeeBeens = default(int);
+        private int water = default(int);
+        private int milk = default(int);
         private CoffeeType coffeeType = default(CoffeeType);
         protected IBoiler boiler = default(IBoiler);
         protected IWaterTank waterTank = default(IWaterTank);
@@ -21,6 +21,8 @@ namespace Coffee {
         protected ICupCartridge cupCartridge = default(ICupCartridge);
         protected IKeyboard keyboard = default(IKeyboard);
         protected IMilkTank milkTank = default(IMilkTank);
+
+        private string WaterErr = "", SugarErr = "", MilkErr = "", CoffeeBeensErr = "", SystemErr = "";
 
         public void Connect(IBoiler Boiler, IWaterTank WaterTank, ICoffeeTank CoffeeTank,
            IMilkTank MilkTank, ISugarTank SugarTank, ICupCartridge CupCartridge, IKeyboard Keyboard) {
@@ -36,9 +38,42 @@ namespace Coffee {
 
 
         
+        protected void CheckSugar() {
+            if (sugarTank.IsEmpty) {
+                SugarErr = "No more sugar";
+                keyboard[ButtonsType.IncreaseSugar].Block();
+            }
+            else {
+                SugarErr = "";
+                keyboard[ButtonsType.IncreaseSugar].UnBlock();
+            }
+        }
+        protected void ChekWater() {
+            if (waterTank.IsEmpty) {
+                WaterErr = "No more water";
+                foreach (Button item in keyboard) {
+                    item.Block();
+                }
+            }
+            else {
+                WaterErr = "";
+                keyboard[ButtonsType.IncreaseSugar].UnBlock();
+            }
+        }
+        protected void CheckMilk() {
+            if (milkTank.IsEmpty) {
+                MilkErr = "No more milk";
+                keyboard[ButtonsType.CoffeeType2].Block();
+            }
+            else {
+                SugarErr = "";
+                keyboard[ButtonsType.IncreaseSugar].UnBlock();
+            }
+        }
 
 
         protected void MakeCoffee() {
+            SetCoffeeTypeParams();
             PrepareCup();
             PrepareWater();
             PrepareCoffeeBeens();
@@ -56,8 +91,28 @@ namespace Coffee {
             else  StateChanged?.Invoke(this, "No cups");
         }
 
+        protected void SetCoffeeTypeParams() {
 
-        
+            switch (coffeeType) {
+                case CoffeeType.Espesso:
+                    SetUpCoffeeParams(150, 10, 0);
+                    break;
+                case CoffeeType.Americano:
+                    SetUpCoffeeParams(250, 10, 0);
+                    break;
+                case CoffeeType.Cappuccino:
+                    SetUpCoffeeParams(150, 10, 50);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SetUpCoffeeParams(int Water, int CoffeeBeens, int Milk) {
+            water = Water;
+            coffeeBeens = CoffeeBeens;
+            milk = Milk;
+        }
 
         protected void PrepareCoffeeBeens() {
             if (!cupCartridge.IsEmpty) {
@@ -107,6 +162,9 @@ namespace Coffee {
             else StateChanged?.Invoke(this, "No milk");
         }
 
+
+
+
         protected void ChangeState() {
             //throw new System.NotImplementedException();
         }
@@ -124,14 +182,15 @@ namespace Coffee {
                     coffeeType = CoffeeType.Americano;
                     break;
                 case ButtonsType.CoffeeType2:
-                    coffeeType = CoffeeType.Espesso;
-                    break;
-                case ButtonsType.CoffeeType3:
                     coffeeType = CoffeeType.Cappuccino;
                     break;
-                case ButtonsType.IncreaseSugar:
-                    IncreaseSugar();
+                case ButtonsType.CoffeeType3:
+                    coffeeType = CoffeeType.Espesso;
                     break;
+                case ButtonsType.IncreaseSugar:
+                    if (this.sugarTank.IsEmpty) IncreaseSugar();
+                    else StateChanged(this, "No more sugar");
+                        break;
                 case ButtonsType.ReduceSugar:
                     ReduceSugar();
                     break;
