@@ -5,15 +5,15 @@ using System.Text;
 using static Coffee.CoffeeMaker;
 
 namespace Coffee {
-    public class StandartKeyboard {
+    public class StandartKeyboard : IKeyboard {
 
        // public event EventHandler<ButtonPressedEventArgs> ButtonPressed;
 
         
-        public Dictionary<ButtonsType, Button>   Buttons { get; set; }
-        public string TextMessage { get; set; }
-        public CoffeeMakerController Controller { get; private set; }
-        public Button this[ButtonsType BType] {
+        public Dictionary<ButtonsType, IButton>   Buttons { get; set; }
+        //public string TextMessage { get; set; }
+        public ICoffeeMakerController Controller { get; private set; }
+        public IButton this[ButtonsType BType] {
             set {
                 Buttons[BType] = value;
             }
@@ -23,11 +23,11 @@ namespace Coffee {
             }
         }
 
-        public void ConnectToController(CoffeeMakerController Controller) {
+        public void ConnectToController(StandartCoffeeMakerController Controller) {
             this.Controller = Controller;
         }
 
-        public StandartKeyboard(Dictionary<ButtonsType, Button> Buttons) {
+        public StandartKeyboard(Dictionary<ButtonsType, IButton> Buttons) {
             this.Buttons = Buttons;
             foreach (var item in Buttons) {
                 item.Value.Pressed += (o, i) => Controller?.InputCommand(i.ButtonValue);

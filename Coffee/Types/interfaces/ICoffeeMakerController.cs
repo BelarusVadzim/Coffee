@@ -2,7 +2,7 @@
 
 namespace Coffee {
     public interface ICoffeeMakerController {
-        event EventHandler StateChanged;
+        event EventHandler<string> StateChanged;
 
         void InputCommand(CoffeeMaker.ButtonsType CommandValue);
     }

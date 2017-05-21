@@ -2,7 +2,7 @@
     public interface IWaterTank {
         int MaxWaterTankVolume { get; }
         int CoffeeVolume { get; }
-
+        bool IsEmpty { get; }
         int AddWater();
         int AddWater(int Amount);
         int TakeWater();

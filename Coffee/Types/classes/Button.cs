@@ -5,7 +5,7 @@ using System.Text;
 using static Coffee.CoffeeMaker;
 
 namespace Coffee {
-    public class Button {
+    public class Button : IButton {
         public ButtonsType Value { get; set; }
         public string Name { get; set; }
 

@@ -43,7 +43,6 @@ namespace Coffee.Types {
             this.IsEmpty = true;
             this.IsFull = false;
             // this.TankContent = new Content(0);
-            Console.WriteLine("Создан бак объёмом {0}", MaximumVolume);
         }
 
 
@@ -60,7 +59,6 @@ namespace Coffee.Types {
                 return 0;
             }
             int result = AmountToAdd;  //result переменная, которая показывает какое количество содержимого будет добавлено с учтом вместимости бака
-            Console.WriteLine("Try to add {0} mls", AmountToAdd);
             IsEmpty = false;
             if (ContentVolume + AmountToAdd >= MaximumVolume) {         // Если содержимое бака + добавдяемое больше чем объм бака
                 result = MaximumVolume - ContentVolume;                 // При переполнении бака переменной result автоматически присвается значение того объма, который был свободен до операции
@@ -73,7 +71,6 @@ namespace Coffee.Types {
             if (IsFull) {
                 TankIsFull?.Invoke(this, new EventArgs());
             }
-            Console.WriteLine("{0} мл было добавлено.", result);
             return result;   //Показывается сколько мл содержимого смогло быть добавлено. (с учтом вместимости бака)
         }
         protected int Add() {
@@ -105,7 +102,6 @@ namespace Coffee.Types {
             int result = AmountToTake;                 // Число указывающее сколько содержимого мы берем.
             if(ContentVolume - AmountToTake < MaximumVolume)
             IsFull = false;
-            Console.WriteLine("Try to teake {0} mls", AmountToTake);
             if (ContentVolume- AmountToTake <= 0) {  //Если остаток в баке меньше того количества которое мы хотим взять
                 result = ContentVolume;                // Остаток бака полностью переходит в число содержимого, которое мы хотели ихъять
                 ContentVolume = 0; ;                 // Содержімому бака прісваіваем 0;
@@ -114,7 +110,6 @@ namespace Coffee.Types {
             } else {
                 ContentVolume -= AmountToTake;
             }
-            Console.WriteLine("{0} mls was deleted.  WaterTankVolume now is {1}", result, ContentVolume);
             return result;                                 
         }
         protected int Take() {
@@ -122,7 +117,7 @@ namespace Coffee.Types {
         }
 
         public override string ToString() {
-            return string.Format("Tank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
+            return string.Format("MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
                 this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
     }

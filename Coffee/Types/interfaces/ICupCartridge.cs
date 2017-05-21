@@ -1,7 +1,7 @@
 ﻿namespace Coffee {
     public interface ICupCartridge {
-        int AmountOfCups { get; }
-
+      
+        bool IsEmpty { get; }
         int AddCup();
         int AddCups(int AmountOfCups);
         int TakeCup();

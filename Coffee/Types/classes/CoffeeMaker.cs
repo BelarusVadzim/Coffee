@@ -16,25 +16,21 @@ namespace Coffee
         protected IMilkTank MilkTank { get; }
         protected ISugarTank SugarTank { get; }
         protected ICupCartridge CupCartridge { get; }
-        public StandartKeyboard Keyboard { get; set; }
+        public    IKeyboard Keyboard { get; }
         protected ICoffeeMakerController Controller { get;}
 
-
-        //private IWaterTank WaterTank { get; set; }
-        //private ICoffeeTank CoffeeTank { get; set; }
-        //private ICupCartridge CupCartridge { get; set; }
-        //private IMilkTank MilkTank { get; set; }
-        //private ISugarTank SugarTank{ get; set; }
-
-
         public CoffeeMaker(IBoiler Boiler, IWaterTank WaterTank, ICoffeeTank CoffeeTank,
-            IMilkTank MilkTank, ISugarTank SugarTank, ICupCartridge CupCartridge) {
+            IMilkTank MilkTank, ISugarTank SugarTank, ICupCartridge CupCartridge, 
+            ICoffeeMakerController CMC, IKeyboard Keyboard) {
             this.Boiler = Boiler;
             this.WaterTank = WaterTank;
             this.CoffeeTank = CoffeeTank;
             this.MilkTank = MilkTank;
             this.SugarTank = SugarTank;
             this.CupCartridge = CupCartridge;
+            this.Controller = CMC;
+            this.Keyboard = Keyboard;
+            CMC.StateChanged += (o, i) => Console.WriteLine(i);
         }
 
         public void SwitchOff() {
@@ -60,15 +56,29 @@ namespace Coffee
             Console.WriteLine("Making coffee {0}", type.ToString());
         }
 
-      
+        public override string ToString() {
+            return string.Format("Boiler = {0}; \nWaterTank = {1}; \nCoffeeTank = {2}; \nMilkTank = {3}; " +
+                "\nSugarTank = {4}; \nCupCartridge = {5}; \nKeyboard = {6}; \nController = {7}; \nIsPowered = {8}; \nCurrentWaterTemperature = {9}", 
+                Boiler.ToString(), WaterTank.ToString(), CoffeeTank.ToString(), MilkTank.ToString(), SugarTank.ToString(),
+                CupCartridge.ToString(), Keyboard.ToString(), Controller.ToString(), IsPowered, CurrentWaterTemperature);
+        }
+
+
+
 
         public enum ButtonsType {
-            espesso = 0,
-            americano = 1,
-            cappuccino = 2,
-            inSugar = 3,
-            deSugar = 4,
-            start =5
+            CoffeeType1 = 0,
+            CoffeeType2 = 1,
+            CoffeeType3 = 2,
+            IncreaseSugar = 3,
+            ReduceSugar = 4,
+            Start =5
+        }
+
+        public enum CoffeeType {
+            Espesso = 0,
+            Americano = 1,
+            Cappuccino = 2,
         }
     }
 }

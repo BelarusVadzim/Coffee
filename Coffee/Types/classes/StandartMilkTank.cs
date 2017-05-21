@@ -7,6 +7,13 @@ using System.Text;
 namespace Coffee {
     public class StandartMilkTank : Tank, IMilkTank {
 
+
+
+
+        public new bool IsEmpty {
+            get { return base.IsEmpty; }
+        }
+
         /// <summary>
         /// Объм воды в бойлере
         /// </summary>
@@ -25,22 +32,18 @@ namespace Coffee {
         }
 
         public int TakeMilk(int Amount) {
-            Mark("!!");
             return base.Take(Amount);
         }
 
         public int TakeMilk() {
-            Mark();
             return base.Take();
         }
 
         public int AddMilk() {
-            Mark();
             return base.Add();
         }
 
         public int AddMilk(int Amount) {
-            Mark();
             return base.Add(Amount);
         }
 
@@ -50,17 +53,10 @@ namespace Coffee {
 
 
         public override string ToString() {
-            return string.Format("WaterTank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
+            return string.Format("MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
                 this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
 
-        private void Mark() {
-            Console.WriteLine("MilkTank =>");
-        }
-
-        private void Mark(string s) {
-            Console.WriteLine(s);
-        }
 
     }
 }

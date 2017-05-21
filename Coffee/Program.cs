@@ -14,23 +14,26 @@ namespace Coffee
         {
             CoffeeMaker COFFEEMAKER = CoffeeMakerFactory.CreateCoffeeMaker();
 
-           // CoffeeMakerController Controller = new CoffeeMakerController();
+            COFFEEMAKER.Keyboard[ButtonsType.CoffeeType2].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.CoffeeType3].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.ReduceSugar].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.Start].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.CoffeeType3].Press();
+            COFFEEMAKER.Keyboard[ButtonsType.CoffeeType1].Press();
 
 
 
-           // Dictionary<ButtonsType, Button> Buttons = new Dictionary<ButtonsType, Button>();
-           // initButtonsTemp(out Buttons);
-           // StandartKeyboard KB = new StandartKeyboard(Buttons);
-           // KB.ConnectToController(Controller);
-           // COFFEEMAKER.Keyboard = KB;
 
-            COFFEEMAKER.Keyboard[ButtonsType.americano].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.cappuccino].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.start].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.cappuccino].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.espesso].Press();
-        
 
+            //----------------------------Tests-----------------------------------
+
+            Console.WriteLine("--------Tests-----------------------");
+
+            
             Action<string> Vova;
             Action<int, int> Boris;
             Action Dasha;
@@ -78,14 +81,14 @@ namespace Coffee
             Console.WriteLine("Tank is Empty");
         }
 
-        private static void initButtonsTemp(out Dictionary<ButtonsType, Button> Buttons) {
+        private static void InitButtonsTemp(out Dictionary<ButtonsType, Button> Buttons) {
             Buttons = new Dictionary<ButtonsType, Button>();
-            MakeButton(ButtonsType.americano, Buttons);
-            MakeButton(ButtonsType.cappuccino, Buttons);
-            MakeButton(ButtonsType.espesso, Buttons);
-            MakeButton(ButtonsType.inSugar, Buttons);
-            MakeButton(ButtonsType.deSugar, Buttons);
-            MakeButton(ButtonsType.start, Buttons);
+            MakeButton(ButtonsType.CoffeeType2, Buttons);
+            MakeButton(ButtonsType.CoffeeType3, Buttons);
+            MakeButton(ButtonsType.CoffeeType1, Buttons);
+            MakeButton(ButtonsType.IncreaseSugar, Buttons);
+            MakeButton(ButtonsType.ReduceSugar, Buttons);
+            MakeButton(ButtonsType.Start, Buttons);
         }
         private static void MakeButton(ButtonsType bt, Dictionary<ButtonsType, Button> Buttons) {
             Buttons.Add(bt, new Button(bt, bt.ToString()));

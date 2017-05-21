@@ -42,10 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoffeeMakerFactory.cs" />
+    <Compile Include="Types\classes\CoffeeMakerFactory.cs" />
     <Compile Include="Types\classes\CoffeeMakerController.cs" />
-    <Compile Include="IMilkTank.cs" />
-    <Compile Include="Types\classes\ICoffeeMakerController.cs" />
+    <Compile Include="Types\interfaces\IMilkTank.cs" />
+    <Compile Include="Types\interfaces\IButton.cs" />
+    <Compile Include="Types\interfaces\ICoffeeMakerController.cs" />
+    <Compile Include="Types\interfaces\IKeyboard.cs" />
+    <Compile Include="Types\classes\StandartKeyboard.cs" />
     <Compile Include="Types\classes\StandartMilkTank.cs" />
     <Compile Include="Types\interfaces\ICupCartridge.cs" />
     <Compile Include="Types\interfaces\ISugarTank.cs" />
@@ -61,7 +64,6 @@
     <Compile Include="Types\delegates\ButtonPressedEventArgs.cs" />
     <Compile Include="Types\delegates\ButtonPressedHanler.cs" />
     <Compile Include="Types\classes\CoffeeMaker.cs" />
-    <Compile Include="Types\classes\Keyboard.cs" />
     <Compile Include="Types\classes\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

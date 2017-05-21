@@ -21,26 +21,26 @@ namespace Coffee {
             get { return base.MaximumVolume; }
         }
 
+        public new bool IsEmpty {
+            get { return base.IsEmpty; }
+        }
+
         public StandartWaterTank(int MaximumVolume) : base(MaximumVolume) {
         }
 
         public int TakeWater(int Amount) {
-            Mark("!!");
             return base.Take(Amount);
         }
 
         public int TakeWater() {
-            Mark();
             return base.Take();
         }
 
         public int AddWater() {
-            Mark();
             return base.Add();
         }
 
         public int AddWater(int Amount) {
-            Mark();
             return base.Add(Amount);
         }
 
@@ -52,14 +52,5 @@ namespace Coffee {
             return string.Format("WaterTank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
                 this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
-
-        private void Mark() {
-            Console.WriteLine("WaterTank =>");
-        }
-
-        private void Mark(string s) {
-            Console.WriteLine(s);
-        }
-
     }
 }

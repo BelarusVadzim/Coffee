@@ -9,8 +9,12 @@ namespace Coffee {
         public StandartCupCartridge(int FullVolume) : base(FullVolume) {
         }
 
-        public int AmountOfCups {
+        private int AmountOfCups {
             get { return base.ContentVolume; }
+        }
+
+        public new bool IsEmpty {
+            get { return base.IsEmpty; }
         }
 
         public int AddCup() {

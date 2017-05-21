@@ -21,26 +21,28 @@ namespace Coffee {
             get { return base.MaximumVolume; }
         }
 
+        public new bool IsEmpty {
+            get { return base.IsEmpty; }
+        }
+
+
         public StandartCoffeeTank(int MaximumVolume) : base(MaximumVolume) {
         }
 
         public int TakeCoffee(int Amount) {
-            Mark("!!");
+        
             return base.Take(Amount);
         }
 
         public int TakeCoffee() {
-            Mark();
             return base.Take();
         }
 
         public int AddCoffee() {
-            Mark();
             return base.Add();
         }
 
         public int AddCoffee(int Amount) {
-            Mark();
             return base.Add(Amount);
         }
 
@@ -50,17 +52,8 @@ namespace Coffee {
 
 
         public override string ToString() {
-            return string.Format("CoffeeTank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
+            return string.Format("MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
                 this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
-
-        private void Mark() {
-            Console.WriteLine("CoffeeTank =>");
-        }
-
-        private void Mark(string s) {
-            Console.WriteLine(s);
-        }
-
     }
 }
