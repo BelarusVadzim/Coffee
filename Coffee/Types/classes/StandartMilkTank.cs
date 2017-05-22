@@ -10,10 +10,6 @@ namespace Coffee {
 
 
 
-        public new bool IsEmpty {
-            get { return base.IsEmpty; }
-        }
-
         /// <summary>
         /// Объм молока в баке
         /// </summary>

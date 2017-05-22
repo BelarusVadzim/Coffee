@@ -14,10 +14,7 @@ namespace Coffee {
             get { return base.ContentVolume; }
         }
 
-        public new bool IsEmpty {
-            get { return base.IsEmpty; }
-        }
-
+       
         /// <summary>
         /// Максимальный объм сахара в контейнере
         /// </summary>

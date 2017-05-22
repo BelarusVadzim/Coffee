@@ -46,7 +46,7 @@ namespace Coffee {
             result = (double)ContentVolume/1000 * (TargetTemperature - ambientTemperature) * 4187 / Power;
 
             Console.WriteLine("В бойлере {0} мл воды", ContentVolume);
-            Console.WriteLine("Boiler => {0} mls of {1} C° water take {2} sec for Warming up to {3} C° ", 
+            Console.WriteLine("{0} mls of {1} C° water take {2} sec for Warming up to {3} C° ", 
                 ContentVolume, ambientTemperature, result, TargetTemperature);
             Console.WriteLine((int)(result * 1000));
             Thread.Sleep((int)(result * 1000));
@@ -60,7 +60,7 @@ namespace Coffee {
         }
 
         public override string ToString() {
-            return string.Format("Boiler => MaximumVolume: {0}, ContentVolume: {1}, Power: {2}, IsFull: {3}, IsEmpty: {4}",
+            return string.Format("MaximumVolume: {0}, ContentVolume: {1}, Power: {2}, IsFull: {3}, IsEmpty: {4}",
                 this.MaxBoilerVolume, this.WaterVolume, this.Power, IsFull, IsEmpty);
         }
     }

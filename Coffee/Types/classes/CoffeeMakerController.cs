@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using static Coffee.CoffeeMaker;
 
 namespace Coffee {
@@ -9,10 +6,17 @@ namespace Coffee {
 
         private const int maxSugar = 15; 
         public event EventHandler<string> StateChanged;
-        private int sugarValue = default(int);
-        private int coffeeBeens = default(int);
+        private int sugar = default(int);
+        private int coffeeBeans = default(int);
         private int water = default(int);
         private int milk = default(int);
+        private bool waterIsEmpty = default(bool);
+        private bool coffeeBeaansIsEmpty = default(bool);
+        private bool milkIsEmpty = default(bool);
+        private bool sugarIsEmpty = default(bool);
+        private bool cupsIsEmpty = default(bool);
+
+
         private CoffeeType coffeeType = default(CoffeeType);
         protected IBoiler boiler = default(IBoiler);
         protected IWaterTank waterTank = default(IWaterTank);
@@ -22,7 +26,11 @@ namespace Coffee {
         protected IKeyboard keyboard = default(IKeyboard);
         protected IMilkTank milkTank = default(IMilkTank);
 
-        private string WaterErr = "", SugarErr = "", MilkErr = "", CoffeeBeensErr = "", SystemErr = "";
+        private string waterErr = "", sugarErr = "", milkErr = "", coffeeBeansErr = "", systemErr = "", cupErr = "";
+
+        public string Status {
+            get { return string.Format("{0}/n{1}/n{2}/n{3}/n{4}/n{5/n}", waterErr, sugarErr, milkErr, coffeeBeansErr, systemErr, cupErr); }
+        }
 
         public void Connect(IBoiler Boiler, IWaterTank WaterTank, ICoffeeTank CoffeeTank,
            IMilkTank MilkTank, ISugarTank SugarTank, ICupCartridge CupCartridge, IKeyboard Keyboard) {
@@ -38,60 +46,22 @@ namespace Coffee {
 
 
         
-        protected void CheckSugar() {
-            if (sugarTank.IsEmpty) {
-                SugarErr = "No more sugar";
-                keyboard[ButtonsType.IncreaseSugar].Block();
-            }
-            else {
-                SugarErr = "";
-                keyboard[ButtonsType.IncreaseSugar].UnBlock();
-            }
-        }
-        protected void ChekWater() {
-            if (waterTank.IsEmpty) {
-                WaterErr = "No more water";
-                foreach (Button item in keyboard) {
-                    item.Block();
-                }
-            }
-            else {
-                WaterErr = "";
-                keyboard[ButtonsType.IncreaseSugar].UnBlock();
-            }
-        }
-        protected void CheckMilk() {
-            if (milkTank.IsEmpty) {
-                MilkErr = "No more milk";
-                keyboard[ButtonsType.CoffeeType2].Block();
-            }
-            else {
-                SugarErr = "";
-                keyboard[ButtonsType.IncreaseSugar].UnBlock();
-            }
-        }
+       
+      
+       
 
 
         protected void MakeCoffee() {
-            SetCoffeeTypeParams();
+            SetCoffeeType();
             PrepareCup();
             PrepareWater();
-            PrepareCoffeeBeens();
-            //PrepareMilk();
-            //IncreaseSugar();
+            PrepareCoffeeBeans();
+            PrepareMilk();
+            PrepareSugar();
             StateChanged(this, "Take your cup of coffee");
         }
 
-        protected void PrepareCup() {
-
-            if (!coffeeTank.IsEmpty) {
-                cupCartridge.TakeCup();
-                StateChanged?.Invoke(this, "Cup is ready");
-            }
-            else  StateChanged?.Invoke(this, "No cups");
-        }
-
-        protected void SetCoffeeTypeParams() {
+        protected void SetCoffeeType() {
 
             switch (coffeeType) {
                 case CoffeeType.Espesso:
@@ -106,64 +76,110 @@ namespace Coffee {
                 default:
                     break;
             }
+            StateChanged?.Invoke(this, string.Format("Coffe type is {0}", coffeeType));
         }
 
-        private void SetUpCoffeeParams(int Water, int CoffeeBeens, int Milk) {
+        private void SetUpCoffeeParams(int Water, int CoffeeBeans, int Milk) {
             water = Water;
-            coffeeBeens = CoffeeBeens;
+            coffeeBeans = CoffeeBeans;
             milk = Milk;
         }
 
-        protected void PrepareCoffeeBeens() {
-            if (!cupCartridge.IsEmpty) {
-                coffeeTank.TakeCoffee(10);
-                StateChanged?.Invoke(this, "Coffee beens is ready");
-            }
-
-            else StateChanged?.Invoke(this, "No coffee");
-        }
-
         protected void IncreaseSugar() {
-            if (sugarValue < maxSugar) {
-                sugarValue += 5;
+            if (sugar < maxSugar) {
+                sugar += 5;
                 StateChanged?.Invoke(this, "Сахар увеличен");
             }
             else {
-                sugarValue = maxSugar;
+                sugar = maxSugar;
                 StateChanged?.Invoke(this, "Максимальное количество сахара");
             }
         }
 
         protected void ReduceSugar() {
-            if (sugarValue > 0) {
-                sugarValue -= 5;
+            if (sugar > 0) {
+                sugar -= 5;
                 StateChanged?.Invoke(this, "Сахар уменшен");
             }
             else {
-                sugarValue = 0;
+                sugar = 0;
                 StateChanged?.Invoke(this, "Без сахара");
             }
         }
 
         protected void PrepareWater() {
-            if (!waterTank.IsEmpty) {
-                waterTank.TakeWater(10);
-                StateChanged?.Invoke(this, "Water is ready");
+            if (!waterIsEmpty && water>0) {
+                int tw = waterTank.TakeWater(water);
+                if (tw < water) {
+                    waterErr = "No water";
+                    waterIsEmpty = true;
+                    StateChanged?.Invoke(this, waterErr);
+                }
+                else {
+                    boiler.AddWater(tw);
+                    boiler.WarmUp(100);
+                    tw = boiler.Drain();
+                    StateChanged?.Invoke(this, string.Format("Boiled and drain to cup {0} mls of water", tw));
+                }
             }
-            else StateChanged?.Invoke(this, "No water");
+        }
 
+        protected void PrepareCup() {
+            if (!cupsIsEmpty) {
+                int tc = cupCartridge.TakeCup();
+                if (tc < 1) {
+                    cupErr = "No cups";
+                    cupsIsEmpty = true;
+                    StateChanged?.Invoke(this, cupErr);
+                }
+                else {
+                    StateChanged?.Invoke(this, "One cup has been prepeared.");
+                }
+                
+            }
+        }
+
+        protected void PrepareCoffeeBeans() {
+            if (!coffeeBeaansIsEmpty && coffeeBeans>0) {
+                int tc = coffeeTank.TakeCoffee(coffeeBeans);
+                if (tc < coffeeBeans) {
+                    coffeeBeansErr = "No coffee beans";
+                    coffeeBeaansIsEmpty = true;
+                    StateChanged?.Invoke(this, coffeeBeansErr);
+                }
+                else {
+                    StateChanged?.Invoke(this, string.Format("{0} mls of coffee has been prepeared", tc));
+                }
+            }
         }
 
         protected void PrepareMilk() {
-            if (!milkTank.IsEmpty) {
-                milkTank.TakeMilk(10);
-                StateChanged?.Invoke(this, "Milk is ready");
+            if (!milkIsEmpty && milk > 0) {
+                int tm = milkTank.TakeMilk(milk);
+                if (tm < milk) {
+                    milkErr = "No milk";
+                    milkIsEmpty = true;
+                    StateChanged?.Invoke(this, milkErr);
+                }
+                else{
+                    StateChanged?.Invoke(this, string.Format("{0} mls of milk has been prepeared", tm));
+                }
             }
-            else StateChanged?.Invoke(this, "No milk");
         }
 
-
-
+        protected void PrepareSugar() {
+            if (!sugarIsEmpty && sugar > 0) {
+                int ts = sugarTank.TakeSugar(sugar);
+                if (ts < sugar) {
+                    sugarErr = "No sugar";
+                    sugarIsEmpty = true;
+                    StateChanged?.Invoke(this, sugarErr);
+                }
+                else {
+                    StateChanged?.Invoke(this, string.Format("{0} mls of sugar has been prepeared", ts));
+                }
+            }
+        }
 
         protected void ChangeState() {
             //throw new System.NotImplementedException();
@@ -188,9 +204,8 @@ namespace Coffee {
                     coffeeType = CoffeeType.Espesso;
                     break;
                 case ButtonsType.IncreaseSugar:
-                    if (this.sugarTank.IsEmpty) IncreaseSugar();
-                    else StateChanged(this, "No more sugar");
-                        break;
+                    IncreaseSugar();
+                    break;
                 case ButtonsType.ReduceSugar:
                     ReduceSugar();
                     break;

@@ -94,7 +94,7 @@ namespace Coffee.Types {
         /// <returns>Количество содержимого взятого из бака</returns>
         protected int Take(int AmountToTake) {
             if (AmountToTake <= 0)
-                throw new Exception("Amount should be a positive value.");
+                //throw new Exception("Amount should be a positive value.");
             if (IsEmpty) {
                 TankIsEmpty?.Invoke(this, new EventArgs());
                 return 0;

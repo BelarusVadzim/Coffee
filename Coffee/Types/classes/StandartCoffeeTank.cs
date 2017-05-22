@@ -21,11 +21,6 @@ namespace Coffee {
             get { return base.MaximumVolume; }
         }
 
-        public new bool IsEmpty {
-            get { return base.IsEmpty; }
-        }
-
-
         public StandartCoffeeTank(int MaximumVolume) : base(MaximumVolume) {
         }
 
