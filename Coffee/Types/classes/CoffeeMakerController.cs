@@ -45,12 +45,6 @@ namespace Coffee {
         }
 
 
-        
-       
-      
-       
-
-
         protected void MakeCoffee() {
             SetCoffeeType();
             PrepareCup();
