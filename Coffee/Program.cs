@@ -14,15 +14,36 @@ namespace Coffee
         {
             CoffeeMaker COFFEEMAKER = CoffeeMakerFactory.CreateCoffeeMaker();
 
-            COFFEEMAKER.Keyboard[ButtonsType.CoffeeType2].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.CoffeeType3].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
-            COFFEEMAKER.Keyboard[ButtonsType.Start].Press();
+            Console.WriteLine("11");
+            Console.Write("aa");
+            Console.CursorLeft = 0;
+            Console.Write("bb");
 
-            Console.WriteLine(COFFEEMAKER.ToString());
+
+            //COFFEEMAKER.Keyboard[ButtonsType.CoffeeType2].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.CoffeeType3].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.Start].Press();
+            //Console.WriteLine(COFFEEMAKER.ToString());
+
+            //COFFEEMAKER.Keyboard[ButtonsType.CoffeeType3].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.Start].Press();
+            //Console.WriteLine(COFFEEMAKER.ToString());
+
+            //COFFEEMAKER.Keyboard[ButtonsType.CoffeeType3].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.IncreaseSugar].Press();
+            //COFFEEMAKER.Keyboard[ButtonsType.Start].Press();
+            //Console.WriteLine(COFFEEMAKER.ToString());
         }
     }
 }

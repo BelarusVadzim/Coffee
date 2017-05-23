@@ -45,9 +45,8 @@ namespace Coffee {
             return base.Fill();
         }
 
-
         public override string ToString() {
-            return string.Format("SugarTank => MaximumVolume: {0}, ContentVolume: {1}, IsFull: {2}, IsEmpty: {3} ",
+            return string.Format("MaximumVolume={0}; ContentVolume={1}; IsFull={2}; IsEmpty={3}; ",
                 this.MaximumVolume, this.ContentVolume, IsFull, IsEmpty);
         }
     }

@@ -7,7 +7,7 @@ using static Coffee.CoffeeMaker;
 namespace Coffee {
     public class CoffeeMakerFactory {
         public static CoffeeMaker CreateCoffeeMaker() {
-            StandartBoiler B = new StandartBoiler(1000, 2500);
+            StandartBoiler B = new StandartBoiler(1000, 3500);
             StandartWaterTank WT = new StandartWaterTank(5000);
             StandartCoffeeTank CT = new StandartCoffeeTank(3000);
             StandartMilkTank MT = new StandartMilkTank(3000);
@@ -23,7 +23,7 @@ namespace Coffee {
             WT.Fill();
             CT.Fill();
             MT.Fill();
-            ST.Fill();
+           // ST.Fill();
             CC.Fill();
 
             Console.WriteLine("CoffeeMaker has been created just now");

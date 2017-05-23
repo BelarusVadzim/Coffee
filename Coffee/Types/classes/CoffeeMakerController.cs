@@ -29,7 +29,8 @@ namespace Coffee {
         private string waterErr = "", sugarErr = "", milkErr = "", coffeeBeansErr = "", systemErr = "", cupErr = "";
 
         public string Status {
-            get { return string.Format("{0}/n{1}/n{2}/n{3}/n{4}/n{5/n}", waterErr, sugarErr, milkErr, coffeeBeansErr, systemErr, cupErr); }
+            get { return string.Format("{0}/n{1}/n{2}/n{3}/n{4}/n{5/n}", waterErr, sugarErr, milkErr, 
+                coffeeBeansErr, systemErr, cupErr); }
         }
 
         public void Connect(IBoiler Boiler, IWaterTank WaterTank, ICoffeeTank CoffeeTank,
@@ -80,13 +81,15 @@ namespace Coffee {
         }
 
         protected void IncreaseSugar() {
-            if (sugar < maxSugar) {
-                sugar += 5;
-                StateChanged?.Invoke(this, "Сахар увеличен");
-            }
-            else {
-                sugar = maxSugar;
-                StateChanged?.Invoke(this, "Максимальное количество сахара");
+            if (!sugarIsEmpty) {
+                if (sugar < maxSugar) {
+                    sugar += 5;
+                    StateChanged?.Invoke(this, "Сахар увеличен");
+                }
+                else {
+                    sugar = maxSugar;
+                    StateChanged?.Invoke(this, "Максимальное количество сахара");
+                }
             }
         }
 
@@ -179,7 +182,12 @@ namespace Coffee {
             //throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// Загрузка последнего состояния
+        /// </summary>
+        protected void LoadLastState() {
 
+        }
 
         public void InputCommand(ButtonsType CommandValue) {
             Console.WriteLine("Контроллер получил входящий параметр: {0}", CommandValue);
